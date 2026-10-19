@@ -1,0 +1,53 @@
+# Contraintes reglementaires par commune (mises a jour a la main, voir docs/research/03-operationnel-reglementaire.md).
+# changement_usage : autorisation de changement d'usage exigee pour louer une residence secondaire en meuble de tourisme
+# compensation : obligation de compenser (transformer un local commercial en logement) => courte duree quasi impossible
+# quota : la commune a instaure des quotas ou zones d'interdiction (loi Le Meur)
+# encadrement_loyers : encadrement des loyers en vigueur (loyer de reference majore a verifier)
+# th_secondaire_majoration : majoration de taxe d'habitation sur les residences secondaires (0.6 = +60 %)
+# zone_tendue : commune en zone tendue (tension locative, bail reduit, surtaxe)
+
+defaut:
+  changement_usage: false
+  compensation: false
+  quota: false
+  encadrement_loyers: false
+  th_secondaire_majoration: 0.0
+  zone_tendue: false
+
+communes:
+  Paris:            { changement_usage: true, compensation: true,  quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Lyon:             { changement_usage: true, compensation: true,  quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Villeurbanne:     { changement_usage: true, compensation: true,  quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Bordeaux:         { changement_usage: true, compensation: true,  quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Lille:            { changement_usage: true, compensation: false, quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Montpellier:      { changement_usage: true, compensation: false, quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Marseille:        { changement_usage: true, compensation: true,  quota: true,  encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Nice:             { changement_usage: true, compensation: true,  quota: true,  encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Toulouse:         { changement_usage: true, compensation: false, quota: true,  encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Nantes:           { changement_usage: true, compensation: false, quota: true,  encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Rennes:           { changement_usage: true, compensation: false, quota: true,  encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Strasbourg:       { changement_usage: true, compensation: false, quota: true,  encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Annecy:           { changement_usage: true, compensation: true,  quota: true,  encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Biarritz:         { changement_usage: true, compensation: true,  quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Bayonne:          { changement_usage: true, compensation: true,  quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Anglet:           { changement_usage: true, compensation: true,  quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Saint-Malo:       { changement_usage: true, compensation: true,  quota: true,   encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  La Rochelle:      { changement_usage: true, compensation: false, quota: true,   encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Grenoble:         { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Aix-en-Provence:  { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Toulon:           { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Rouen:            { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Le Havre:         { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Saint-Etienne:    { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Clermont-Ferrand: { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Mulhouse:         { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Limoges:          { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Angers:           { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Tours:            { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Reims:            { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Perpignan:        { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Saint-Jean-de-Luz: { changement_usage: true, compensation: true,  quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Hellemmes:        { changement_usage: true, compensation: false, quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Lomme:            { changement_usage: true, compensation: false, quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Saint-Denis:      { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Montreuil:        { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }

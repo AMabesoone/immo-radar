@@ -1,0 +1,59 @@
+name: Immo Radar hebdomadaire
+
+on:
+  schedule:
+    - cron: "30 5 * * 1"        # tous les lundis a 05:30 UTC (07:30 Paris)
+  workflow_dispatch:
+    inputs:
+      refresh_str:
+        description: "Forcer le rafraichissement des donnees Inside Airbnb"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: immo-radar
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installer les dependances
+        run: pip install -r requirements.txt
+
+      - name: Restaurer les caches de donnees (loyers, DVF)
+        uses: actions/cache@v4
+        with:
+          path: |
+            data/cache/*.csv
+          key: immo-cache-${{ runner.os }}-v1
+
+      - name: Tests
+        run: pytest -q
+
+      - name: Scan hebdomadaire
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GSHEET_ID: ${{ secrets.GSHEET_ID }}
+        run: |
+          python scripts/run_weekly.py ${{ inputs.refresh_str == true && '--refresh-str' || '' }}
+
+      - name: Publier le tableau de bord et l'etat
+        run: |
+          git config user.name "immo-radar-bot"
+          git config user.email "immo-radar-bot@users.noreply.github.com"
+          git add docs/index.html docs/data.json data/state.json data/cache/dvf/*.json data/cache/str_markets.json 2>/dev/null || true
+          git diff --cached --quiet && echo "Rien a publier" && exit 0
+          git commit -m "Scan hebdomadaire $(date -u +%Y-%m-%d)"
+          git push

@@ -1,0 +1,197 @@
+# Immo Radar : configuration principale.
+# Tous les montants sont en euros, tous les taux en fraction (0.03 = 3 %).
+# Les valeurs par defaut viennent de la synthese de recherche (docs/research/).
+# Un onglet "Parametres" dans le Google Sheet peut surcharger n'importe quelle cle
+# avec la notation pointee (ex: "financement.taux_20_ans" -> 0.031).
+
+recherche:
+  # Villes ou zones a scanner. "zone" = requete envoyee a la geocodification Bien'ici.
+  # categorie : metropole | grande_ville | ville_moyenne | touristique | petite_ville
+  # Elle pilote les hypotheses par defaut (occupation courte duree, vacance, tension).
+  villes:
+    - { zone: "Lyon", categorie: metropole }
+    - { zone: "Villeurbanne", categorie: grande_ville }
+    - { zone: "Saint-Etienne", categorie: ville_moyenne }
+    - { zone: "Grenoble", categorie: grande_ville }
+    - { zone: "Clermont-Ferrand", categorie: grande_ville }
+    - { zone: "Marseille", categorie: metropole }
+    - { zone: "Montpellier", categorie: grande_ville }
+    - { zone: "Nantes", categorie: grande_ville }
+    - { zone: "Rennes", categorie: grande_ville }
+    - { zone: "Lille", categorie: grande_ville }
+    - { zone: "Rouen", categorie: ville_moyenne }
+    - { zone: "Le Havre", categorie: ville_moyenne }
+    - { zone: "Mulhouse", categorie: ville_moyenne }
+    - { zone: "Limoges", categorie: ville_moyenne }
+    - { zone: "Angers", categorie: ville_moyenne }
+    - { zone: "Tours", categorie: ville_moyenne }
+    - { zone: "Reims", categorie: ville_moyenne }
+    - { zone: "Perpignan", categorie: ville_moyenne }
+    - { zone: "Annecy", categorie: touristique }
+    - { zone: "La Rochelle", categorie: touristique }
+  types_bien: ["flat", "house"]       # flat | house | loft | building (immeuble)
+  prix_min: 40000
+  prix_max: 350000
+  surface_min: 12                      # decence : 9 m2 minimum legal, 12 m2 pour un studio louable
+  pieces_min: 1
+  max_annonces_par_ville: 120          # pagination Bien'ici (page de 60)
+  jours_max_publication: 45            # ignorer les annonces plus anciennes
+  mots_cles_bonus:                     # signaux "vendeur presse" ou "potentiel"
+    - "succession"
+    - "urgent"
+    - "travaux"
+    - "a renover"
+    - "à rénover"
+    - "divisible"
+    - "immeuble"
+    - "loue"
+    - "loué"
+    - "rapport"
+    - "colocation"
+    - "lot"
+    - "cause depart"
+    - "baisse de prix"
+  source_notaires: true                # immobilier.notaires.fr en complement de Bien'ici
+  mots_cles_exclusion_titre:           # le bien vendu EST un parking / une cave / un terrain
+    - "parking"
+    - "garage"
+    - "cave"
+    - "terrain"
+    - "box"
+  mots_cles_exclusion:                 # dans le titre ou la description
+    - "viager"
+    - "nue-propriete"
+    - "nue-propriété"
+    - "résidence senior"
+    - "residence senior"
+    - "ehpad"
+    - "residence etudiante"
+    - "résidence étudiante"
+
+financement:
+  apport_pct: 0.10                     # x % du cout total du projet (prix + notaire + travaux + meubles)
+  financer_frais_notaire: true         # pret a 110 % si la banque suit ; sinon apport couvre les frais
+  duree_ans: 25
+  taux_20_ans: 0.0375                  # bareme courtiers oct. 2026 (3,55 a 3,66 %) + surcote investisseur 0,2 pt
+  taux_25_ans: 0.0390                  # 3,65 a 3,75 % + surcote
+  assurance_emprunteur_pct_capital: 0.0025   # par an, sur capital initial (delegation d'assurance)
+  frais_dossier: 1000
+  frais_garantie_pct: 0.012            # caution type Credit Logement (dont ~0.6 % restitue en fin de pret)
+  differe_mois: 0                      # differe d'amortissement (0 = aucun)
+  taux_effort_max: 0.35                # regle HCSF
+  ponderation_loyers_banque: 0.70      # part des loyers retenue par la banque
+  revenus_nets_mensuels_emprunteur: 0  # 0 = ne pas tester la capacite d'endettement globale
+  charges_credits_existants: 0
+
+acquisition:
+  frais_notaire_ancien_pct: 0.080      # DMTO a 5 % dans 84 departements jusqu'en 2028 (6,3 % droits + emoluments)
+  frais_notaire_neuf_pct: 0.025
+  travaux_par_m2:                      # estimation si l'annonce mentionne des travaux
+    aucun: 0
+    rafraichissement: 450
+    renovation: 1200
+    lourde: 2200
+  ameublement_par_m2: 120              # meuble et equipement pour location meublee / courte duree
+  ameublement_minimum: 4000
+  decote_negociation_cible: 0.05       # negociation moyenne nationale (Laforet T3 2026 : 4,8 %)
+  decote_negociation_par_ville:        # marges observees T1 2026 (Interkab), surcharge la cible par ville
+    Nantes: 0.10
+    Strasbourg: 0.08
+    Bordeaux: 0.06
+    Montpellier: 0.05
+    Lille: 0.05
+    Nice: 0.05
+    Toulouse: 0.04
+    Paris: 0.035
+    Marseille: 0.04
+    Lyon: 0.03
+
+exploitation:
+  longue_duree:
+    gestion_locative_pct: 0.075        # 6 a 10 % HT ; 0 si autogestion
+    vacance_pct_par_categorie: { paris: 0.03, metropole: 0.04, grande_ville: 0.055, ville_moyenne: 0.08, touristique: 0.10, petite_ville: 0.12 }
+    gli_pct: 0.03                      # garantie loyers impayes (0 pour desactiver)
+    entretien_capex_pct: 0.05          # provision travaux et entretien sur loyers
+    charges_copro_non_recuperables_pct: 0.30   # part des charges de copro restant au proprietaire
+    charges_copro_defaut_par_m2_an: 30 # si l'annonce ne donne pas les charges
+    taxe_fonciere_defaut_mois_loyer: 1.0        # proxy : 1 mois de loyer si inconnue
+    assurance_pno: 160
+    prime_meuble_pct: 0.12             # loyer meuble vs nu (meme bien)
+    prime_colocation_pct: 0.25         # loyer colocation vs location classique (bien >= 3 pieces, >= 60 m2)
+    colocation_surface_min: 60
+    colocation_pieces_min: 3
+  courte_duree:
+    # Occupation et prix moyen par nuit par defaut quand aucune donnee Inside Airbnb n'est disponible.
+    # Valeurs centrales prudentes (AirDNA / Airbtics / Welkeys 2025-2026) : les fournisseurs divergent fortement.
+    occupation_par_categorie: { paris: 0.68, metropole: 0.60, grande_ville: 0.55, ville_moyenne: 0.50, touristique: 0.47, petite_ville: 0.40 }
+    adr_base_par_categorie: { paris: 160, metropole: 105, grande_ville: 95, ville_moyenne: 80, touristique: 120, petite_ville: 70 }   # pour un T2, hors menage
+    adr_coef_par_pieces: { 1: 0.80, 2: 1.00, 3: 1.30, 4: 1.60 }   # 4 = 4 pieces et plus
+    adr_min: 45
+    adr_max: 320
+    conciergerie_pct: 0.22             # cout reel all-in 18 a 30 % (marges menage / linge) ; 0 si autogestion
+    commission_plateforme_pct: 0.155   # Airbnb EEE : 15,5 % cote hote depuis le 13 octobre 2026 ; Booking 15 a 18 %
+    linge_consommables_pct: 0.04
+    energie_internet_mensuel: 190       # energie + internet + PMS / pricing (150 a 230 + 40)
+    assurance_specifique: 240
+    entretien_capex_pct: 0.08           # renouvellement mobilier 4 % + entretien 4 %
+    classement_cout: 350               # classement Atout France (5 ans)
+    menage_refacture_voyageur: true    # frais de menage neutres si refactures
+    classement_meuble_tourisme: true   # viser le classement (abattement 50 % micro-BIC)
+
+fiscalite:
+  tmi: 0.30                            # tranche marginale d'imposition de l'investisseur
+  prelevements_sociaux: 0.172          # revenus fonciers et plus-values
+  prelevements_sociaux_bic: 0.186      # BIC LMNP : 18,6 % depuis la LFSS 2026 (revenus 2025)
+  micro_foncier_plafond: 15000
+  micro_foncier_abattement: 0.30
+  micro_bic_plafond_meuble_classique: 83600   # revenus 2026 (77 700 pour les revenus 2025)
+  micro_bic_abattement_meuble_classique: 0.50
+  micro_bic_plafond_tourisme_non_classe: 15000
+  micro_bic_abattement_tourisme_non_classe: 0.30
+  micro_bic_plafond_tourisme_classe: 83600
+  micro_bic_abattement_tourisme_classe: 0.50
+  deficit_foncier_plafond: 10700
+  deficit_foncier_plafond_renovation_energetique: 21400   # depenses payees jusqu'au 31/12/2027
+  jeanbrun:                            # LF 2026 art. 47 : amortissement en location nue (acquisitions 21/02/2026 - 31/12/2028)
+    actif: true
+    taux_ancien_renove: 0.03           # 3 % du prix hors terrain, loyer intermediaire plafonne 9 ans
+    taux_neuf: 0.035
+    plafond_annuel: 8000
+    travaux_min_pct_prix: 0.30
+  plf_2027_risque_amortissement_tourisme: true   # projet : suppression / plafonnement de l'amortissement des meubles de tourisme
+  amortissement:
+    part_terrain: 0.15                 # non amortissable
+    duree_bati_ans: 30                 # moyenne ponderee des composants (gros oeuvre 50, facade 25, equipements 15...)
+    duree_travaux_ans: 12
+    duree_meubles_ans: 7
+    frais_acquisition_amortis: true    # frais de notaire integres au cout amortissable (option au reel)
+  sci_is:
+    taux_reduit: 0.15
+    plafond_taux_reduit: 42500
+    taux_normal: 0.25
+  cfe_defaut: 350                      # 200 a 700 EUR selon commune
+  comptable_lmnp: 600                  # 300 a 800 EUR, reduction d'impot OGA 2/3 possible
+  taxe_habitation_residence_secondaire_defaut: 0   # applicable aux meubles de tourisme dans certaines communes (saisi par ville)
+
+scoring:
+  # Poids des composantes (total 100). Voir docs/methodologie.md.
+  poids:
+    autofinancement: 35      # cash-flow net d'impot du meilleur scenario, ramene a la mensualite
+    rendement_net: 15
+    decote_marche: 15        # prix/m2 annonce vs mediane DVF de la commune
+    robustesse_loyer: 10     # fiabilite de l'indicateur de loyer et tension
+    risque_technique: 10     # DPE, procedure copro, annee de construction, charges
+    liquidite_revente: 5     # prix/m2 vs marche, baisse de prix, duree en ligne
+    option_courte_duree: 10  # courte duree legalement possible ET rentable
+  rendement_brut_minimum: 0.055       # en dessous, l'annonce n'est pas analysee en detail
+  score_minimum_publication: 55
+  top_n: 40
+
+sorties:
+  google_sheet_id: ""                  # ou variable d'environnement GSHEET_ID
+  onglet_opportunites: "Opportunites"
+  onglet_historique: "Historique"
+  onglet_parametres: "Parametres"
+  html_path: "docs/index.html"
+  state_path: "data/state.json"
+  export_json_path: "docs/data.json"
