@@ -52,8 +52,14 @@ def _charges_copro_non_recup(listing: Listing, cfg_ld: dict[str, Any]) -> float:
 
 def loyer_longue_duree(listing: Listing, market: MarketData, cfg_ld: dict[str, Any]) -> float | None:
     """Loyer mensuel hors charges estime pour une location nue classique."""
+    estime = None
+    if market.loyer_m2:
+        estime = market.loyer_m2 * 0.92 * listing.surface
     if listing.loue_actuellement and listing.loyer_actuel:
-        return float(listing.loyer_actuel)
+        # garde-fou : un loyer "en place" lu dans l'annonce doit rester plausible (0,4 a 2 fois le marche)
+        if estime is None or 0.4 * estime <= float(listing.loyer_actuel) <= 2.0 * estime:
+            return float(listing.loyer_actuel)
+        listing.loyer_actuel = None
     if not market.loyer_m2:
         return None
     # La carte des loyers donne un loyer charges comprises : on retire ~8 % de charges.
@@ -212,8 +218,10 @@ def construire_scenarios(
         scenarios.append(_scenario_ld("nue", listing, market, loyer_nu, plan, cfg_ld, cfg_fisc, meuble=False))
         loyer_meuble = loyer_nu * (1 + float(cfg_ld.get("prime_meuble_pct", 0.12)))
         scenarios.append(_scenario_ld("meuble", listing, market, loyer_meuble, plan, cfg_ld, cfg_fisc, meuble=True))
+        demande_coloc = market.population is None or market.population >= int(cfg_ld.get("colocation_population_min", 60000)) or market.zone_tendue
         if (
-            listing.surface >= float(cfg_ld.get("colocation_surface_min", 60))
+            demande_coloc
+            and listing.surface >= float(cfg_ld.get("colocation_surface_min", 60))
             and listing.pieces >= int(cfg_ld.get("colocation_pieces_min", 3))
         ):
             loyer_coloc = loyer_nu * (1 + float(cfg_ld.get("prime_colocation_pct", 0.25)))

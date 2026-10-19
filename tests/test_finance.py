@@ -103,3 +103,22 @@ def test_overrides_depuis_sheet():
     assert new["fiscalite"]["tmi"] == 0.41
     assert new["recherche"]["prix_max"] == 200000
     assert coerce("oui") is True and coerce("abc") == "abc"
+
+
+def test_loyer_en_place_implausible_ignore():
+    from immo_radar.finance.cashflow import loyer_longue_duree
+    cfg = load_config()["exploitation"]["longue_duree"]
+    lst = listing(loue_actuellement=True, loyer_actuel=2365)  # 45 m2 a 10,5 EUR/m2 : marche ~435 EUR
+    assert loyer_longue_duree(lst, market(), cfg) < 600 and lst.loyer_actuel is None
+    lst2 = listing(loue_actuellement=True, loyer_actuel=480)
+    assert loyer_longue_duree(lst2, market(), cfg) == 480
+
+
+def test_colocation_seulement_avec_demande():
+    cfg = load_config()
+    lst = listing(surface=100, pieces=5, prix=120000)
+    plan = construire_plan(lst.prix, lst.prix * 0.08, 0, 12000, cfg["financement"])
+    petite = market(population=25000, zone_tendue=False)
+    assert not any(s.nom == "colocation" for s in construire_scenarios(lst, petite, plan, cfg))
+    grande = market(population=170000)
+    assert any(s.nom == "colocation" for s in construire_scenarios(lst, grande, plan, cfg))

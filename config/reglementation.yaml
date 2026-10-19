@@ -51,3 +51,22 @@ communes:
   Lomme:            { changement_usage: true, compensation: false, quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
   Saint-Denis:      { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
   Montreuil:        { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Roubaix:          { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Tourcoing:        { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Villeneuve-d'Ascq: { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Lambersart:       { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Marcq-en-Baroeul: { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Wattrelos:        { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Dunkerque:        { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Valenciennes:     { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Douai:            { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Cambrai:          { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Maubeuge:         { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Arras:            { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Lens:             { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Bethune:          { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Calais:           { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Boulogne-sur-Mer: { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: false }
+  Le Touquet-Paris-Plage: { changement_usage: true, compensation: false, quota: true, encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Berck:            { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Wimereux:         { changement_usage: true, compensation: false, quota: true,  encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }

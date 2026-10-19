@@ -85,7 +85,11 @@ def executer(config_path: str | None = None, dry_run: bool = False, limite: int 
                 deps[insee[:3] if insee.startswith("97") else insee[:2]] = (ville["zone"], ville.get("categorie", "ville_moyenne"))
         bruts += _collecter("immo_interactif", immo_interactif.fetch_all(cfg_r, deps))
     if cfg_sp.get("cessions_etat", True):
-        bruts += _collecter("etat", source_etat.fetch_all(cfg_r, max_pages=int(cfg_sp.get("cessions_etat_pages", 6)), cache_path=ROOT / "data" / "cache" / "etat.json"))
+        biens_etat = _collecter("etat", source_etat.fetch_all(cfg_r, max_pages=int(cfg_sp.get("cessions_etat_pages", 6)), cache_path=ROOT / "data" / "cache" / "etat.json"))
+        deps_etat = {str(d) for d in (cfg_sp.get("cessions_etat_departements") or [])}
+        if deps_etat:
+            biens_etat = [l for l in biens_etat if str(l.extra.get("departement", "")) in deps_etat]
+        bruts += biens_etat
     bruts += csv_import.load(ROOT / "data" / "annonces_manuelles.csv")
     listings = filtrer(bruts, cfg_r, cfg_sp)
     if limite:

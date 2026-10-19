@@ -8,7 +8,34 @@ recherche:
   # Villes ou zones a scanner. "zone" = requete envoyee a la geocodification Bien'ici.
   # categorie : metropole | grande_ville | ville_moyenne | touristique | petite_ville
   # Elle pilote les hypotheses par defaut (occupation courte duree, vacance, tension).
+  # Cible du premier achat : Nord (59) et Pas-de-Calais (62). L'ancienne liste France entiere est
+  # conservee dans villes_desactivees (deplacer des lignes vers villes pour les reactiver).
   villes:
+    - { zone: "Lille", categorie: grande_ville }
+    - { zone: "Roubaix", categorie: ville_moyenne }
+    - { zone: "Tourcoing", categorie: ville_moyenne }
+    - { zone: "Villeneuve-d'Ascq", categorie: ville_moyenne }
+    - { zone: "Wattrelos", categorie: ville_moyenne }
+    - { zone: "Lambersart", categorie: ville_moyenne }
+    - { zone: "Marcq-en-Baroeul", categorie: ville_moyenne }
+    - { zone: "Dunkerque", categorie: ville_moyenne }
+    - { zone: "Valenciennes", categorie: ville_moyenne }
+    - { zone: "Douai", categorie: ville_moyenne }
+    - { zone: "Cambrai", categorie: ville_moyenne }
+    - { zone: "Maubeuge", categorie: petite_ville }
+    - { zone: "Armentieres", categorie: petite_ville }
+    - { zone: "Arras", categorie: ville_moyenne }
+    - { zone: "Lens", categorie: ville_moyenne }
+    - { zone: "Lievin", categorie: petite_ville }
+    - { zone: "Henin-Beaumont", categorie: petite_ville }
+    - { zone: "Bethune", categorie: ville_moyenne }
+    - { zone: "Calais", categorie: ville_moyenne }
+    - { zone: "Boulogne-sur-Mer", categorie: ville_moyenne }
+    - { zone: "Saint-Omer", categorie: petite_ville }
+    - { zone: "Berck", categorie: touristique }
+    - { zone: "Le Touquet-Paris-Plage", categorie: touristique }
+    - { zone: "Wimereux", categorie: touristique }
+  villes_desactivees:
     - { zone: "Lyon", categorie: metropole }
     - { zone: "Villeurbanne", categorie: grande_ville }
     - { zone: "Saint-Etienne", categorie: ville_moyenne }
@@ -18,7 +45,6 @@ recherche:
     - { zone: "Montpellier", categorie: grande_ville }
     - { zone: "Nantes", categorie: grande_ville }
     - { zone: "Rennes", categorie: grande_ville }
-    - { zone: "Lille", categorie: grande_ville }
     - { zone: "Rouen", categorie: ville_moyenne }
     - { zone: "Le Havre", categorie: ville_moyenne }
     - { zone: "Mulhouse", categorie: ville_moyenne }
@@ -31,7 +57,7 @@ recherche:
     - { zone: "La Rochelle", categorie: touristique }
   types_bien: ["flat", "house"]       # flat | house | loft | building (immeuble)
   prix_min: 40000
-  prix_max: 350000
+  prix_max: 250000                     # premier achat : budget plafonne
   surface_min: 12                      # decence : 9 m2 minimum legal, 12 m2 pour un studio louable
   pieces_min: 1
   max_annonces_par_ville: 120          # pagination Bien'ici (page de 60)
@@ -63,6 +89,17 @@ recherche:
     - "nue-propriete"
     - "nue-propriété"
     - "résidence senior"
+    - "residence services"
+    - "résidence services"
+    - "residence service"
+    - "résidence service"
+    - "seniors"
+    - "bail commercial"
+    - "residence de tourisme"
+    - "résidence de tourisme"
+    - "gestionnaire"
+    - "lmnp géré"
+    - "lmnp gere"
     - "residence senior"
     - "ehpad"
     - "residence etudiante"
@@ -70,7 +107,7 @@ recherche:
 
 sources_speciales:
   encheres_judiciaires: true           # licitor.com : biens saisis vendus aux encheres des tribunaux des villes cibles
-  tribunaux_supplementaires: []        # ex: ["Bobigny", "Creteil"] : tribunaux hors villes cibles a suivre
+  tribunaux_supplementaires: ["Avesnes-sur-Helpe", "Boulogne-sur-Mer", "Saint-Omer", "Bethune", "Arras", "Cambrai", "Dunkerque", "Douai", "Valenciennes"]   # tribunaux du 59 et du 62 (Licitor)
   coef_adjudication_attendue: 1.6      # prix d'adjudication attendu = mise a prix x coef (borne par la valeur DVF)
   decote_encheres_vs_marche: 0.20      # plafond : valeur DVF x (1 - decote)
   frais_encheres_pct: 0.12             # droits de mutation + emoluments d'avocat + frais de poursuite (environ 10 a 15 %)
@@ -80,6 +117,7 @@ sources_speciales:
   decote_vni_vs_marche: 0.05
   cessions_etat: true                  # cessions.immobilier-etat.gouv.fr (biens de l'Etat, toute la France)
   cessions_etat_pages: 6
+  cessions_etat_departements: ["59", "62"]   # vide = toute la France
   decote_etat_sans_prix: 0.15          # prix non communique : valeur DVF x (1 - decote) comme hypothese d'offre
 
 financement:
@@ -134,6 +172,7 @@ exploitation:
     prime_colocation_pct: 0.25         # loyer colocation vs location classique (bien >= 3 pieces, >= 60 m2)
     colocation_surface_min: 60
     colocation_pieces_min: 3
+    colocation_population_min: 60000   # colocation etudiee seulement si commune >= 60 000 hab. ou zone tendue (demande etudiante / jeunes actifs)
   courte_duree:
     # Occupation et prix moyen par nuit par defaut quand aucune donnee Inside Airbnb n'est disponible.
     # Valeurs centrales prudentes (AirDNA / Airbtics / Welkeys 2025-2026) : les fournisseurs divergent fortement.
