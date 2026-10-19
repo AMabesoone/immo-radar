@@ -11564,6 +11564,201 @@
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
+  },
+  "notaires:2069750": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 114884.99999999999
+    }
+   ],
+   "meilleur_score": 68.1,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/grenoble-38/2069750",
+   "titre": "Appartement 4 pieces a Grenoble (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2036514": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 80500.0
+    }
+   ],
+   "meilleur_score": 58.1,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-13-13013/2036514",
+   "titre": "Appartement 3 pieces a Marseille 13e Arrondissement (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2022963": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 90850.0
+    }
+   ],
+   "meilleur_score": 51.1,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-etienne-42/2022963",
+   "titre": "Appartement 5 pieces a Saint-Étienne (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2083606": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 67850.0
+    }
+   ],
+   "meilleur_score": 50.1,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-etienne-42/2083606",
+   "titre": "Appartement 5 pieces a Saint-Étienne (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2031786": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 143750.0
+    }
+   ],
+   "meilleur_score": 45.7,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/st-etienne-42/2031786",
+   "titre": "Maison 6 pieces a Saint-Étienne (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2095771": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 113849.99999999999
+    }
+   ],
+   "meilleur_score": 44.8,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-etienne-42/2095771",
+   "titre": "Appartement 4 pieces a Saint-Étienne (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2031799": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 78200.0
+    }
+   ],
+   "meilleur_score": 43.2,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-06-13006/2031799",
+   "titre": "Appartement 1 pieces a Marseille 6e Arrondissement (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2094234": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 195499.99999999997
+    }
+   ],
+   "meilleur_score": 40.2,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/lyon-05-69005/2094234",
+   "titre": "Appartement 3 pieces a Lyon 5e Arrondissement (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2024358": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 78200.0
+    }
+   ],
+   "meilleur_score": 39.7,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-01-13001/2024358",
+   "titre": "Appartement 2 pieces a Marseille 1er Arrondissement (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2042575": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 206999.99999999997
+    }
+   ],
+   "meilleur_score": 38.3,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/tours-37/2042575",
+   "titre": "Maison 4 pieces a Tours (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2019502": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 189749.99999999997
+    }
+   ],
+   "meilleur_score": 36.7,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-11-13011/2019502",
+   "titre": "Appartement 4 pieces a Marseille 11e Arrondissement (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2083949": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 93150.0
+    }
+   ],
+   "meilleur_score": 35.9,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/marseille-16-13016/2083949",
+   "titre": "Maison 3 pieces a Marseille 16e Arrondissement (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2038085": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 136507.0833333333
+    }
+   ],
+   "meilleur_score": 31.8,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-12-13012/2038085",
+   "titre": "Appartement 1 pieces a Marseille 12e Arrondissement (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
   }
  }
 }
