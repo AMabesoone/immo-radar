@@ -6134,6 +6134,36 @@
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
+  },
+  "notaires:2095218": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 54049.99999999999
+    }
+   ],
+   "meilleur_score": 69.7,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/douai-59/2095218",
+   "titre": "Maison 4 pieces a Douai (vente interactive)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "notaires:2096687": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 195000.0
+    }
+   ],
+   "meilleur_score": 33.0,
+   "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/maison/villeneuve-d-ascq-59/2096687",
+   "titre": "Maison 4 pieces a Villeneuve-d'Ascq (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
   }
  }
 }
