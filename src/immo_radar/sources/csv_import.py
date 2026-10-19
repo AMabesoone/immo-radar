@@ -23,6 +23,16 @@ def _num(v: str | None) -> float | None:
         return None
 
 
+def load_dir(directory: str | Path) -> list[Listing]:
+    """Charge tous les CSV d'un dossier (exports d'alertes Jinka, listes de chasseur...)."""
+    d = Path(directory)
+    out: list[Listing] = []
+    if d.is_dir():
+        for f in sorted(d.glob("*.csv")):
+            out += load(f)
+    return out
+
+
 def load(path: str | Path) -> list[Listing]:
     p = Path(path)
     if not p.exists():
@@ -52,6 +62,11 @@ def load(path: str | Path) -> list[Listing]:
                 taxe_fonciere=_num(row.get("taxe_fonciere")),
                 loue_actuellement=str(row.get("loue", "")).lower() in {"1", "oui", "true"},
                 loyer_actuel=_num(row.get("loyer_actuel")),
+                copro_en_procedure=str(row.get("copro_en_procedure", "")).lower() in {"1", "oui", "true"},
+                nb_lots_copro=int(_num(row.get("nb_lots_copro")) or 0) or None,
+                neuf=str(row.get("neuf", "")).lower() in {"1", "oui", "true"},
+                date_publication=row.get("date_publication") or "",
+                extra={"quartier": row.get("quartier") or ""},
             ))
     log.info("Import manuel : %d annonces", len(out))
     return out

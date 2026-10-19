@@ -46,6 +46,8 @@ def filtrer(listings: list[Listing], cfg_r: dict[str, Any], cfg_sp: dict[str, An
         prix_ref = lst.mise_a_prix if lst.mode_vente in {"enchere_judiciaire", "vente_interactive"} else lst.prix
         if lst.mode_vente == "cession_etat" and not lst.prix:
             prix_ref = None  # prix inconnu : estime plus tard par DVF
+        if lst.source in {"manuel", "jinka"}:
+            prix_ref = None  # biens choisis a la main : pas de filtre de budget, l'analyse tranche
         if prix_ref is not None and not (float(cfg_r.get("prix_min", 0)) * (0.5 if lst.mode_vente != "classique" else 1.0) <= prix_ref <= float(cfg_r.get("prix_max", 1e9))):
             continue
         if lst.source == "notaires" and "immo-interactif" in lst.url and lst.url.rstrip("/").split("/")[-1] in ids_vni:
@@ -91,6 +93,7 @@ def executer(config_path: str | None = None, dry_run: bool = False, limite: int 
             biens_etat = [l for l in biens_etat if str(l.extra.get("departement", "")) in deps_etat]
         bruts += biens_etat
     bruts += csv_import.load(ROOT / "data" / "annonces_manuelles.csv")
+    bruts += csv_import.load_dir(ROOT / "data" / "jinka")
     listings = filtrer(bruts, cfg_r, cfg_sp)
     if limite:
         listings = listings[:limite]

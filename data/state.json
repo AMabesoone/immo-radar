@@ -195,21 +195,6 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "etat:39655": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 45750.0
-    }
-   ],
-   "meilleur_score": 72.0,
-   "url": "https://cessions.immobilier-etat.gouv.fr/biens/maison-dhabitation-107-m2-isigny-le-buat-50",
-   "titre": "Maison D'habitation - 107 M² - Isigny-le-buat (50) (bien de l'Etat)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
   "notaires:2009146": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -221,36 +206,6 @@
    "meilleur_score": 71.2,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/maison/lille-59/2009146",
    "titre": "Maison 5 pieces a Lille (notaire)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "etat:39648": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 29250.0
-    }
-   ],
-   "meilleur_score": 70.5,
-   "url": "https://cessions.immobilier-etat.gouv.fr/biens/maison-dhabitation-128-m2-isigny-le-buat-50-parcelle-632-2145",
-   "titre": "Maison D'habitation - 128 M² - Isigny-le-buat (50) - Parcelle 632 A 2145 (bien de l'Etat)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "etat:39652": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 45750.0
-    }
-   ],
-   "meilleur_score": 70.5,
-   "url": "https://cessions.immobilier-etat.gouv.fr/biens/maison-dhabitation-107-m2-1-impasse-maurice-vaudoir-isigny-le-buat-50-parcelle-632-2147",
-   "titre": "Maison D'habitation - 107 M² - 1 Impasse Maurice Vaudoir - Isigny-le-buat (50) - ... (bien de l'Etat)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -971,21 +926,6 @@
    "meilleur_score": 49.9,
    "url": "https://www.bienici.com/annonce/vente/dunkerque/appartement/4pieces/immonot-0000013073__w17701164423859176",
    "titre": "Appartement en vente Dunkerque (59140)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "etat:39601": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 168980.0
-    }
-   ],
-   "meilleur_score": 49.9,
-   "url": "https://cessions.immobilier-etat.gouv.fr/biens/vente-maison-forestiere",
-   "titre": "Vente Maison Forestière (bien de l'Etat)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -1785,6 +1725,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "manuel:cc022881-1293-4ffb-b557-c92712df03ab": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 280000.0
+    }
+   ],
+   "meilleur_score": 41.3,
+   "url": "https://www.jinka.fr/ad/cc022881-1293-4ffb-b557-c92712df03ab",
+   "titre": "Appartement 5 pieces 3 ch. a Marcq-en-Baroeul (Quesne) via Zefir",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:iad-france-1037710": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -2070,6 +2025,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "manuel:79f8ff6e-2b01-4232-8fd8-cba61b8b8855": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 299990.0
+    }
+   ],
+   "meilleur_score": 39.6,
+   "url": "https://www.jinka.fr/ad/79f8ff6e-2b01-4232-8fd8-cba61b8b8855",
+   "titre": "Appartement 5 pieces 2 ch. a Marcq-en-Baroeul (Plouich) via IAD FRANCE",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "notaires:2075933": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -2111,6 +2081,21 @@
    "meilleur_score": 39.1,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/maison/armentieres-59/2095412",
    "titre": "Maison 4 pieces a Armentières (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "manuel:57b102f4-9151-41c8-97bb-5b6556656675": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 273000.0
+    }
+   ],
+   "meilleur_score": 39.0,
+   "url": "https://www.jinka.fr/ad/57b102f4-9151-41c8-97bb-5b6556656675",
+   "titre": "Maison 4 pieces 3 ch. a Lille (Vauban-Esquermes) via ABRINOR - WATTIGNIES",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -2205,6 +2190,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "manuel:e6c730dc-cb72-46b7-84de-08411aa0c13f": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 269900.0
+    }
+   ],
+   "meilleur_score": 38.6,
+   "url": "https://www.jinka.fr/ad/e6c730dc-cb72-46b7-84de-08411aa0c13f",
+   "titre": "Maison 4 pieces 3 ch. a Lambersart via MAN IMMO PRO",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:citya-1-964-NDF-LAMB-44107": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -2261,6 +2261,21 @@
    "meilleur_score": 38.2,
    "url": "https://www.bienici.com/annonce/vente/lille/appartement/2pieces/netty-vacherand-appt-14797",
    "titre": "Appartement à vendre Lille",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "manuel:fa5fea28-9aa3-48c7-8596-1c0af6113275": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 269000.0
+    }
+   ],
+   "meilleur_score": 38.2,
+   "url": "https://www.jinka.fr/ad/fa5fea28-9aa3-48c7-8596-1c0af6113275",
+   "titre": "Maison 4 pieces 3 ch. a Lille (Bois blancs) via Zefir",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -2666,21 +2681,6 @@
    "meilleur_score": 36.3,
    "url": "https://www.bienici.com/annonce/vente/calais/appartement/2pieces/guy-hoquet-18-GT0491-apprt-kd",
    "titre": "Appartement",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "etat:39276": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 446533.33333333326
-    }
-   ],
-   "meilleur_score": 36.3,
-   "url": "https://cessions.immobilier-etat.gouv.fr/biens/appartement-avec-deux-greniers-et-deux-caves",
-   "titre": "Appartement Avec Deux Greniers Et Deux Caves (bien de l'Etat)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -3165,6 +3165,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "manuel:bcff1d03-ea5e-452b-8e31-0137ea88964b": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 269000.0
+    }
+   ],
+   "meilleur_score": 34.1,
+   "url": "https://www.jinka.fr/ad/bcff1d03-ea5e-452b-8e31-0137ea88964b",
+   "titre": "Maison 4 pieces 3 ch. a Lille (Mitterie) via Homki",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:citya-1-958-NDF-DUNK-39987": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -3600,6 +3615,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "manuel:8983ecd9-9bde-44d5-98d9-81703cab6594": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 283500.0
+    }
+   ],
+   "meilleur_score": 32.1,
+   "url": "https://www.jinka.fr/ad/8983ecd9-9bde-44d5-98d9-81703cab6594",
+   "titre": "Appartement 2 pieces 1 ch. a Lille (Lille centre) via ERA RUE NATIONALE",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:citya-1-991-NDF-ROO-45123": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -3825,6 +3855,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "manuel:ec36834d-e4b7-4b2c-89d4-c466690f0090": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 271000.0
+    }
+   ],
+   "meilleur_score": 31.5,
+   "url": "https://www.jinka.fr/ad/ec36834d-e4b7-4b2c-89d4-c466690f0090",
+   "titre": "Maison 4 pieces 3 ch. a Lille (Lomme) via IAD FRANCE",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:citya-1-991-NDF-ROO-38713": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -3926,6 +3971,21 @@
    "meilleur_score": 30.9,
    "url": "https://www.bienici.com/annonce/vente/lens/appartement/1piece/citya-1-967-NDF-LENS-43358",
    "titre": "Appartement",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "manuel:59208e67-5084-459e-9591-1f834b5e21ac": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 269000.0
+    }
+   ],
+   "meilleur_score": 30.9,
+   "url": "https://www.jinka.fr/ad/59208e67-5084-459e-9591-1f834b5e21ac",
+   "titre": "Maison 8 pieces 5 ch. a Saint-Amand-les-Eaux via IAD FRANCE",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -4080,6 +4140,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "manuel:c90af2b8-706d-4f08-9506-1c5bbe702224": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 279000.0
+    }
+   ],
+   "meilleur_score": 29.3,
+   "url": "https://www.jinka.fr/ad/c90af2b8-706d-4f08-9506-1c5bbe702224",
+   "titre": "Maison 7 pieces 6 ch. a Bauvin via IAD FRANCE",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:citya-1-993-NDF-ASCQ-45128": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -4121,6 +4196,21 @@
    "meilleur_score": 29.1,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/maison/maubeuge-59/1882856",
    "titre": "Maison 5 pieces a Maubeuge (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "manuel:f297f75f-1a95-4fa0-a252-ac09d748ea31": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 279000.0
+    }
+   ],
+   "meilleur_score": 29.0,
+   "url": "https://www.jinka.fr/ad/f297f75f-1a95-4fa0-a252-ac09d748ea31",
+   "titre": "Maison 6 pieces 2 ch. a Dunkerque (Fort-Mardyck) via ERA AGENCE DE LA MER",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -4706,21 +4796,6 @@
    "meilleur_score": 26.4,
    "url": "https://www.bienici.com/annonce/vente/douai/appartement/2pieces/ag340369-548670929",
    "titre": "Appartement à vendre 2 pièces DOUAI (59)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "etat:39796": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 711315.7894736843
-    }
-   ],
-   "meilleur_score": 26.4,
-   "url": "https://cessions.immobilier-etat.gouv.fr/biens/lot-de-4-maisons-renover-chateau-arnoux-saint-auban-04",
-   "titre": "Lot De 4 Maisons à Rénover à Chateau Arnoux Saint Auban (04) (bien de l'Etat)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -5325,6 +5400,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "manuel:66a7316e-3e5f-44b6-99f5-a1ed81075a29": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 261000.0
+    }
+   ],
+   "meilleur_score": 24.3,
+   "url": "https://www.jinka.fr/ad/66a7316e-3e5f-44b6-99f5-a1ed81075a29",
+   "titre": "Maison 4 pieces 3 ch. a Tourcoing (Blanc Seau) via ABRINOR - ROUBAIX",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:citya-1-991-NDF-ROO-42708": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -5790,17 +5880,17 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "etat:39643": {
+  "manuel:6c383ae5-8375-4858-977f-bbeaffc3f904": {
    "premiere_vue": "2026-10-19",
    "prix": [
     {
      "date": "2026-10-19",
-     "prix": 39000.0
+     "prix": 279000.0
     }
    ],
-   "meilleur_score": 21.7,
-   "url": "https://cessions.immobilier-etat.gouv.fr/biens/maison-mitoyenne-142-m2-54-route-du-barrage-de-vezins-50540-isigny-le-buat-isigny-le-buat-50",
-   "titre": "Maison Mitoyenne - 142 M² - 54 Route Du Barrage De Vézins, 50540 Isigny-le-buat  ... (bien de l'Etat)",
+   "meilleur_score": 21.9,
+   "url": "https://www.jinka.fr/ad/6c383ae5-8375-4858-977f-bbeaffc3f904",
+   "titre": "Maison 6 pieces 4 ch. a Wattrelos (Ballon) via IAD FRANCE",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -6041,216 +6131,6 @@
    "meilleur_score": 18.7,
    "url": "https://www.bienici.com/annonce/vente/lens/maison/6pieces/safti-1-1722112",
    "titre": "Maison de type maître dans un quartier calme.",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2069750": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 114884.99999999999
-    }
-   ],
-   "meilleur_score": 68.1,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/grenoble-38/2069750",
-   "titre": "Appartement 4 pieces a Grenoble (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2036514": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 80500.0
-    }
-   ],
-   "meilleur_score": 58.1,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-13-13013/2036514",
-   "titre": "Appartement 3 pieces a Marseille 13e Arrondissement (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2022963": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 90850.0
-    }
-   ],
-   "meilleur_score": 51.1,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-etienne-42/2022963",
-   "titre": "Appartement 5 pieces a Saint-Étienne (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2083606": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 67850.0
-    }
-   ],
-   "meilleur_score": 50.1,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-etienne-42/2083606",
-   "titre": "Appartement 5 pieces a Saint-Étienne (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2031786": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 143750.0
-    }
-   ],
-   "meilleur_score": 45.7,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/st-etienne-42/2031786",
-   "titre": "Maison 6 pieces a Saint-Étienne (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2095771": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 113849.99999999999
-    }
-   ],
-   "meilleur_score": 44.8,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-etienne-42/2095771",
-   "titre": "Appartement 4 pieces a Saint-Étienne (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2031799": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 78200.0
-    }
-   ],
-   "meilleur_score": 43.2,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-06-13006/2031799",
-   "titre": "Appartement 1 pieces a Marseille 6e Arrondissement (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2094234": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 195499.99999999997
-    }
-   ],
-   "meilleur_score": 40.2,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/lyon-05-69005/2094234",
-   "titre": "Appartement 3 pieces a Lyon 5e Arrondissement (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2024358": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 78200.0
-    }
-   ],
-   "meilleur_score": 39.7,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-01-13001/2024358",
-   "titre": "Appartement 2 pieces a Marseille 1er Arrondissement (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2042575": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 206999.99999999997
-    }
-   ],
-   "meilleur_score": 38.3,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/tours-37/2042575",
-   "titre": "Maison 4 pieces a Tours (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2019502": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 189749.99999999997
-    }
-   ],
-   "meilleur_score": 36.7,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-11-13011/2019502",
-   "titre": "Appartement 4 pieces a Marseille 11e Arrondissement (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2083949": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 93150.0
-    }
-   ],
-   "meilleur_score": 35.9,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/marseille-16-13016/2083949",
-   "titre": "Maison 3 pieces a Marseille 16e Arrondissement (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2038085": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 136507.0833333333
-    }
-   ],
-   "meilleur_score": 31.8,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-12-13012/2038085",
-   "titre": "Appartement 1 pieces a Marseille 12e Arrondissement (vente interactive)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2095218": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 54049.99999999999
-    }
-   ],
-   "meilleur_score": 69.7,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/douai-59/2095218",
-   "titre": "Maison 4 pieces a Douai (vente interactive)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0

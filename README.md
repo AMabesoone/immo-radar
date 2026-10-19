@@ -47,6 +47,7 @@ Settings > Pages > Source : Deploy from a branch, branche `main`, dossier `/docs
 - Poids du score et seuil de publication : section `scoring`.
 - Règles communales (changement d'usage, compensation, quotas, encadrement des loyers, taxe d'habitation secondaire) : `config/reglementation.yaml`. À relire avant chaque offre, les règlements changent chaque semestre.
 - Biens off-market ou alertes e-mail : `data/annonces_manuelles.csv` (voir l'en-tête attendu dans `src/immo_radar/sources/csv_import.py`).
+- Alertes Jinka : ouvrir l'alerte connecté dans le navigateur, coller `scripts/jinka_export.js` dans la console (F12), déposer le CSV téléchargé dans `data/jinka/` et commiter. Les biens choisis à la main (sources `jinka` et `manuel`) ne sont pas soumis au filtre de budget. Pour analyser un CSV sans toucher au radar : `python scripts/analyser_csv.py data/jinka/mon-export.csv --top 30`.
 - Enchères, ventes interactives, biens de l'État : section `sources_speciales` (activation, coefficient mise à prix vers prix attendu, frais d'enchères 12 %, décote bien occupé, tribunaux supplémentaires à suivre).
 
 ## Structure
