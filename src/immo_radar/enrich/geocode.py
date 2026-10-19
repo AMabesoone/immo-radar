@@ -25,10 +25,25 @@ def arrondissement_insee(code_postal: str) -> str | None:
     return None
 
 
+def arrondissement_depuis_nom(ville: str) -> str | None:
+    """'Lyon 3ème' -> 69383 ; 'Paris 15e' -> 75115 ; 'Marseille 11' -> 13211."""
+    m = re.match(r"^\s*(paris|lyon|marseille)\s+(\d{1,2})\s*(?:er|e|eme|ème|e arrondissement|ème arrondissement)?\s*(?:arrondissement)?\s*$", (ville or "").lower())
+    if not m:
+        return None
+    n = int(m.group(2))
+    if m.group(1) == "paris" and 1 <= n <= 20:
+        return f"751{n:02d}"
+    if m.group(1) == "lyon" and 1 <= n <= 9:
+        return f"6938{n}"
+    if m.group(1) == "marseille" and 1 <= n <= 16:
+        return f"132{n:02d}"
+    return None
+
+
 @lru_cache(maxsize=4096)
 def resolve(code_postal: str, ville: str) -> tuple[str | None, str | None, int | None]:
     """Retourne (code_insee, nom_commune, population)."""
-    arr = arrondissement_insee(code_postal)
+    arr = arrondissement_insee(code_postal) or arrondissement_depuis_nom(ville)
     if arr:
         return arr, ville, None
     s = session()

@@ -83,3 +83,11 @@ def test_notaires_rejette_terrains_et_locaux():
     assert n_norm({**base, "typeBien": "LOC"}, "Rennes", "grande_ville") is None
     assert n_norm({**base, "typeBien": "GAR"}, "Rennes", "grande_ville") is None
     assert n_norm({**base, "typeBien": "MAI"}, "Rennes", "grande_ville") is not None
+
+
+def test_arrondissement_depuis_nom():
+    from immo_radar.enrich.geocode import arrondissement_depuis_nom
+    assert arrondissement_depuis_nom("Lyon 3ème") == "69383"
+    assert arrondissement_depuis_nom("Paris 15e") == "75115"
+    assert arrondissement_depuis_nom("Marseille 11") == "13211"
+    assert arrondissement_depuis_nom("Lyon") is None

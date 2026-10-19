@@ -8,7 +8,7 @@ Radar hebdomadaire d'opportunités d'investissement locatif en France, longue et
 
 ## Ce que fait le pipeline
 
-1. Collecte les annonces de vente (Bien'ici, immobilier.notaires.fr, CSV manuel) pour les villes de `config/config.yaml`.
+1. Collecte les annonces de vente (Bien'ici, immobilier.notaires.fr, CSV manuel) pour les villes de `config/config.yaml`, plus trois circuits à prix décotés : ventes judiciaires de biens saisis (Licitor, tribunaux des villes cibles), ventes notariales interactives (immo-interactif) et cessions immobilières de l'État (Domaines / DGFiP, toute la France).
 2. Enrichit chaque annonce avec le marché de sa commune : loyer au m² (Carte des loyers 2025), prix au m² des ventes réelles (DVF 2024 à 2026), prix par nuit et occupation Airbnb (Inside Airbnb), contraintes réglementaires (`config/reglementation.yaml`).
 3. Construit le plan de financement (apport x %, notaire, travaux, ameublement, garantie, mensualité assurance comprise).
 4. Calcule quatre scénarios (nue, meublé, colocation, courte durée) et compare les régimes fiscaux (micro-foncier, réel, Jeanbrun, micro-BIC, LMNP réel, SCI IS).
@@ -47,13 +47,14 @@ Settings > Pages > Source : Deploy from a branch, branche `main`, dossier `/docs
 - Poids du score et seuil de publication : section `scoring`.
 - Règles communales (changement d'usage, compensation, quotas, encadrement des loyers, taxe d'habitation secondaire) : `config/reglementation.yaml`. À relire avant chaque offre, les règlements changent chaque semestre.
 - Biens off-market ou alertes e-mail : `data/annonces_manuelles.csv` (voir l'en-tête attendu dans `src/immo_radar/sources/csv_import.py`).
+- Enchères, ventes interactives, biens de l'État : section `sources_speciales` (activation, coefficient mise à prix vers prix attendu, frais d'enchères 12 %, décote bien occupé, tribunaux supplémentaires à suivre).
 
 ## Structure
 
 ```
 config/        config.yaml (hypothèses), reglementation.yaml (règles communales)
 src/immo_radar/
-  sources/     bienici.py, notaires.py, csv_import.py, http.py
+  sources/     bienici.py, notaires.py, licitor.py (encheres judiciaires), immo_interactif.py (VNI), etat.py (Domaines), csv_import.py, http.py
   enrich/      geocode.py, rents.py (carte des loyers), dvf.py, str_market.py (Inside Airbnb), regulation.py
   finance/     loan.py, cashflow.py, tax.py, scoring.py
   outputs/     sheets.py, html.py (+ templates/), state.py
@@ -70,6 +71,9 @@ data/          state.json (mémoire inter-semaines), cache/ (DVF, loyers, Airbnb
 
 - Bien'ici : point d'accès JSON public utilisé par le site, sans clé. Peut casser sans préavis.
 - immobilier.notaires.fr : API JSON publique du Conseil supérieur du notariat.
+- Licitor : annonces légales des ventes aux enchères des tribunaux judiciaires. Lecture des seules pages d'audience des tribunaux cibles, lien vers l'annonce d'origine (cahier des conditions de vente, PV descriptif). Le prix retenu est une adjudication attendue (mise à prix × 1,6, plafonnée à la valeur DVF moins 20 %), les frais sont de 12 % et un bien occupé est décoté de 15 %.
+- immo-interactif.fr : API publique des ventes notariales interactives. Prix retenu : première offre × 1,15, plafonné à la valeur DVF moins 5 %.
+- cessions.immobilier-etat.gouv.fr : portail officiel des biens de l'État (anciens logements de fonction, maisons forestières). Prix souvent non publié : hypothèse d'offre à la valeur DVF moins 15 %, signalée en alerte. Le certificat TLS du portail n'est pas reconnu par tous les bundles : lecture sans vérification en repli.
 - Leboncoin et SeLoger : inaccessibles depuis un serveur (DataDome) et protégés juridiquement (jurisprudence Jinka 2026). Pour les couvrir : agrégateur sous licence (stream.estate, Moteurimmo) ou alertes e-mail copiées dans le CSV manuel.
 - Carte des loyers 2025 (ministère du Logement, ANIL) : loyer d'annonce charges comprises par commune, licence ouverte.
 - DVF géolocalisées (DGFiP, Etalab) : ventes réelles, licence ouverte, publication avril et octobre.

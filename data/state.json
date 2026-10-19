@@ -1,5 +1,50 @@
 {
  "annonces": {
+  "licitor:109973": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 64000.0
+    }
+   ],
+   "meilleur_score": 89.2,
+   "url": "https://www.licitor.com/annonce/10/99/73/vente-aux-encheres/un-appartement/marseille-15eme/bouches-du-rhone/109973.html",
+   "titre": "Un appartement aux encheres, Marseille 15ème (TJ Marseille, 21/10/2026)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:BDNATIONAL13003": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 43700.0
+    }
+   ],
+   "meilleur_score": 89.2,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-03-13003/2087368",
+   "titre": "Appartement 2 pieces en vente interactive, Marseille 3",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:12/102026": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 79350.0
+    }
+   ],
+   "meilleur_score": 89.2,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/salon-de-provence-13/2093827",
+   "titre": "Appartement 4 pieces en vente interactive, Salon De Provence",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:netty-company55382byt-appt-14566": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -11,6 +56,21 @@
    "meilleur_score": 89.1,
    "url": "https://www.bienici.com/annonce/vente/grenoble/appartement/3pieces/netty-company55382byt-appt-14566",
    "titre": "Appartement à vendre Grenoble",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "licitor:110063": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 40000.0
+    }
+   ],
+   "meilleur_score": 89.1,
+   "url": "https://www.licitor.com/annonce/11/00/63/vente-aux-encheres/un-appartement/perpignan/pyrenees-orientales/110063.html",
+   "titre": "Un appartement aux encheres, Perpignan (TJ Perpignan, 23/10/2026)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -105,17 +165,32 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "notaires:2069750": {
+  "vni:59101-1189": {
    "premiere_vue": "2026-10-19",
    "prix": [
     {
      "date": "2026-10-19",
-     "prix": 99900.0
+     "prix": 54049.99999999999
     }
    ],
    "meilleur_score": 86.0,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/grenoble-38/2069750",
-   "titre": "Appartement 4 pieces a Grenoble (notaire)",
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/douai-59/2095218",
+   "titre": "Maison 4 pieces en vente interactive, Douai",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "licitor:110189": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 64000.0
+    }
+   ],
+   "meilleur_score": 85.8,
+   "url": "https://www.licitor.com/annonce/11/01/89/vente-aux-encheres/un-appartement/lattes/herault/110189.html",
+   "titre": "Un appartement aux encheres, Lattes (TJ Montpellier, 09/11/2026)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -161,6 +236,51 @@
    "meilleur_score": 79.7,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/appartement/le-havre-76/1993540",
    "titre": "Appartement 3 pieces a Havre (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:VNI-TOR": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 136850.0
+    }
+   ],
+   "meilleur_score": 79.5,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/meyrargues-13/2095322",
+   "titre": "Maison 6 pieces en vente interactive, Meyrargues",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:VNI-LALONDE": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 63249.99999999999
+    }
+   ],
+   "meilleur_score": 79.4,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/la-londe-76/2084141",
+   "titre": "Maison 4 pieces en vente interactive, La Londe",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "licitor:110190": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 60800.0
+    }
+   ],
+   "meilleur_score": 78.8,
+   "url": "https://www.licitor.com/annonce/11/01/90/vente-aux-encheres/une-maison-d-habitation/saint-bauzille-de-la-sylve/herault/110190.html",
+   "titre": "Une maison d'habitation aux encheres, Saint-Bauzille-de-la-Sylve (TJ Montpellier, 09/11/2026)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -266,6 +386,21 @@
    "meilleur_score": 75.4,
    "url": "https://www.bienici.com/annonce/vente/saint-etienne/appartement/2pieces/hektor-GTISTETIENNE2026-63198",
    "titre": "À vendre  Secteur Colline des Père",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "licitor:110049": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 31280.0
+    }
+   ],
+   "meilleur_score": 74.8,
+   "url": "https://www.licitor.com/annonce/11/00/49/vente-aux-encheres/un-appartement/fougeres/ille-et-vilaine/110049.html",
+   "titre": "Un appartement aux encheres, Fougères (TJ Rennes, 05/11/2026)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -465,6 +600,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "etat:39655": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 45750.0
+    }
+   ],
+   "meilleur_score": 72.0,
+   "url": "https://cessions.immobilier-etat.gouv.fr/biens/maison-dhabitation-107-m2-isigny-le-buat-50",
+   "titre": "Maison D'habitation - 107 M² - Isigny-le-buat (50) (bien de l'Etat)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:guy-hoquet-18-GT0258-5084": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -555,6 +705,36 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "etat:39648": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 29250.0
+    }
+   ],
+   "meilleur_score": 70.5,
+   "url": "https://cessions.immobilier-etat.gouv.fr/biens/maison-dhabitation-128-m2-isigny-le-buat-50-parcelle-632-2145",
+   "titre": "Maison D'habitation - 128 M² - Isigny-le-buat (50) - Parcelle 632 A 2145 (bien de l'Etat)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "etat:39652": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 45750.0
+    }
+   ],
+   "meilleur_score": 70.5,
+   "url": "https://cessions.immobilier-etat.gouv.fr/biens/maison-dhabitation-107-m2-1-impasse-maurice-vaudoir-isigny-le-buat-50-parcelle-632-2147",
+   "titre": "Maison D'habitation - 107 M² - 1 Impasse Maurice Vaudoir - Isigny-le-buat (50) - ... (bien de l'Etat)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:ag762165-554031926": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -581,6 +761,21 @@
    "meilleur_score": 70.0,
    "url": "https://www.bienici.com/annonce/vente/le-havre/appartement/4pieces/ag440414-552254693",
    "titre": "Appartement Le Havre 4 pièce(s) 80 m2",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:VNI - 202330": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 322000.0
+    }
+   ],
+   "meilleur_score": 69.1,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/immeuble/flines-lez-raches-59/2068248",
+   "titre": "Immeuble pieces en vente interactive, Flines Lez Raches",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -645,6 +840,36 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:13074-1095996": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 184000.0
+    }
+   ],
+   "meilleur_score": 67.3,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/salon-de-provence-13/2085011",
+   "titre": "Appartement 6 pieces en vente interactive, Salon De Provence",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:VNI38003-47": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 114884.99999999999
+    }
+   ],
+   "meilleur_score": 66.9,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/grenoble-38/2069750",
+   "titre": "Appartement 4 pieces en vente interactive, Grenoble",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:ag750129-552742823": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -660,47 +885,17 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "notaires:2036514": {
+  "vni:CF/NB 10EGL": {
    "premiere_vue": "2026-10-19",
    "prix": [
     {
      "date": "2026-10-19",
-     "prix": 70000.0
-    }
-   ],
-   "meilleur_score": 65.9,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-13-13013/2036514",
-   "titre": "Appartement 3 pieces a Marseille 13e Arrondissement (notaire)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2083606": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 59000.0
+     "prix": 150937.5
     }
    ],
    "meilleur_score": 65.8,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-etienne-42/2083606",
-   "titre": "Appartement 5 pieces a Saint-Étienne (notaire)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2022963": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 79000.0
-    }
-   ],
-   "meilleur_score": 65.7,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-etienne-42/2022963",
-   "titre": "Appartement 5 pieces a Saint-Étienne (notaire)",
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/le-grand-quevilly-76/1630294",
+   "titre": "Maison 7 pieces en vente interactive, Le Grand Quevilly",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -900,21 +1095,6 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "notaires:2095771": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 99000.0
-    }
-   ],
-   "meilleur_score": 62.7,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-etienne-42/2095771",
-   "titre": "Appartement 4 pieces a Saint-Étienne (notaire)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
   "bienici:ag593474-554378882": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -930,17 +1110,17 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "notaires:2031786": {
+  "vni:BERAU": {
    "premiere_vue": "2026-10-19",
    "prix": [
     {
      "date": "2026-10-19",
-     "prix": 125000.0
+     "prix": 67850.0
     }
    ],
-   "meilleur_score": 60.1,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/st-etienne-42/2031786",
-   "titre": "Maison 6 pieces a Saint-Étienne (notaire)",
+   "meilleur_score": 60.6,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-etienne-42/2083606",
+   "titre": "Appartement 5 pieces en vente interactive, St Etienne",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -1031,6 +1211,21 @@
    "meilleur_score": 58.4,
    "url": "https://www.bienici.com/annonce/vente/mulhouse/appartement/3pieces/safti-1-1727732",
    "titre": "Petite copropriété, proches des axes auto routier",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "licitor:110102": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 320000.0
+    }
+   ],
+   "meilleur_score": 58.4,
+   "url": "https://www.licitor.com/annonce/11/01/02/vente-aux-encheres/une-villa/ceyreste/bouches-du-rhone/110102.html",
+   "titre": "Une villa aux encheres, Ceyreste (TJ Marseille, 21/10/2026)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -1136,6 +1331,21 @@
    "meilleur_score": 57.5,
    "url": "https://www.bienici.com/annonce/vente/limoges/appartement/2pieces/ag870308-553437686",
    "titre": "T2 EN REZ-DE-CHAUSSÉE – COPROPRIÉTÉ ARBORÉE ET TRÈS BIEN ENTRETENUE",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "licitor:110134": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 152000.0
+    }
+   ],
+   "meilleur_score": 57.0,
+   "url": "https://www.licitor.com/annonce/11/01/34/vente-aux-encheres/sept-studios-meubles/saint-etienne/loire/110134.html",
+   "titre": "Sept studios meublés aux encheres, Saint-Étienne (TJ Saint Etienne, 05/11/2026)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -1440,21 +1650,6 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "notaires:2019502": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 165000.0
-    }
-   ],
-   "meilleur_score": 52.9,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-11-13011/2019502",
-   "titre": "Appartement 4 pieces a Marseille 11e Arrondissement (notaire)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
   "bienici:iad-france-1003887": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -1470,17 +1665,17 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "bienici:netty-newmade-appt-3443": {
+  "vni:44001-1433": {
    "premiere_vue": "2026-10-19",
    "prix": [
     {
      "date": "2026-10-19",
-     "prix": 105000.0
+     "prix": 206999.99999999997
     }
    ],
-   "meilleur_score": 52.7,
-   "url": "https://www.bienici.com/annonce/vente/clermont-ferrand/appartement/3pieces/netty-newmade-appt-3443",
-   "titre": "T3 bis avec grand salon séjour et loggia",
+   "meilleur_score": 52.4,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/nantes-44/2086364",
+   "titre": "Maison 5 pieces en vente interactive, Nantes",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -1586,6 +1781,21 @@
    "meilleur_score": 51.6,
    "url": "https://www.bienici.com/annonce/vente/angers/appartement/2pieces/ics-xdr_PIGE_tra-TAPP100805",
    "titre": "",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:13074-109626": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 92000.0
+    }
+   ],
+   "meilleur_score": 51.6,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/salon-de-provence-13/2080470",
+   "titre": "Appartement 3 pieces en vente interactive, Salon De Provence",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -1755,6 +1965,36 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:VNI-LUC": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 92000.0
+    }
+   ],
+   "meilleur_score": 49.9,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-chamas-13/2095343",
+   "titre": "Appartement 4 pieces en vente interactive, St Chamas",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "etat:39601": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 168980.0
+    }
+   ],
+   "meilleur_score": 49.9,
+   "url": "https://cessions.immobilier-etat.gouv.fr/biens/vente-maison-forestiere",
+   "titre": "Vente Maison Forestière (bien de l'Etat)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "notaires:2025589": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -1875,6 +2115,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "bienici:hektor-MIDIIMMO-1357": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 81000.0
+    }
+   ],
+   "meilleur_score": 48.9,
+   "url": "https://www.bienici.com/annonce/vente/limoges/appartement/3pieces/hektor-MIDIIMMO-1357",
+   "titre": "Appartement - 73.75 - 3 pièces",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "notaires:2064820": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -1901,6 +2156,21 @@
    "meilleur_score": 48.8,
    "url": "https://www.bienici.com/annonce/vente/saint-etienne/appartement/4pieces/ag421184-553376702",
    "titre": "Appartement T5 de 89,77 m2",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:MARCO": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 113849.99999999999
+    }
+   ],
+   "meilleur_score": 48.5,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-etienne-42/2095771",
+   "titre": "Appartement 4 pieces en vente interactive, St Etienne",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -2085,6 +2355,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:M11-10/2026": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 77625.0
+    }
+   ],
+   "meilleur_score": 47.1,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/tancarville-76/2084605",
+   "titre": "Maison 4 pieces en vente interactive, Tancarville",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:laforet-immo-facile-20802061": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -2265,6 +2550,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:M12-10/2026": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 62674.99999999999
+    }
+   ],
+   "meilleur_score": 45.6,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/tancarville-76/2084645",
+   "titre": "Maison 3 pieces en vente interactive, Tancarville",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:adapt-immo-75011175306": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -2355,6 +2655,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:VNI260901": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 109249.99999999999
+    }
+   ],
+   "meilleur_score": 44.8,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/st-julien-de-concelles-44/2024485",
+   "titre": "Maison 3 pieces en vente interactive, St Julien De Concelles",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:ag133861-554436725": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -2366,21 +2681,6 @@
    "meilleur_score": 44.6,
    "url": "https://www.bienici.com/annonce/vente/marseille-13e/appartement/4pieces/ag133861-554436725",
    "titre": "Appartement T4 de 93m² à Marseille 13013, Chemin de Château Gombert",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2031799": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 68000.0
-    }
-   ],
-   "meilleur_score": 44.6,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-06-13006/2031799",
-   "titre": "Appartement 1 pieces a Marseille 6e Arrondissement (notaire)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -2426,21 +2726,6 @@
    "meilleur_score": 44.2,
    "url": "https://www.bienici.com/annonce/vente/rouen/appartement/2pieces/ag762205-552347387",
    "titre": "Appartement T2 de 58,08 m² | ROUEN (76100)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2024358": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 68000.0
-    }
-   ],
-   "meilleur_score": 44.2,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-01-13001/2024358",
-   "titre": "Appartement 2 pieces a Marseille 1er Arrondissement (notaire)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -2625,21 +2910,6 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "bienici:guy-hoquet-immo-facile-7800542": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 69000.0
-    }
-   ],
-   "meilleur_score": 43.5,
-   "url": "https://www.bienici.com/annonce/vente/saint-etienne/appartement/3pieces/guy-hoquet-immo-facile-7800542",
-   "titre": "Appartement Saint Etienne 3 pièce(s) 65.28 m2",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
   "bienici:ag510910-552829340": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -2666,21 +2936,6 @@
    "meilleur_score": 43.5,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/maison/nantes-44/1935427",
    "titre": "Maison 4 pieces a Nantes (notaire)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "bienici:iad-france-1020939": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 205000.0
-    }
-   ],
-   "meilleur_score": 43.4,
-   "url": "https://www.bienici.com/annonce/vente/marseille-12e/appartement/4pieces/iad-france-1020939",
-   "titre": "Vente Appartement 4 pièces",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -3540,6 +3795,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:VNI AUBERIVES": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 159850.0
+    }
+   ],
+   "meilleur_score": 42.2,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/auberives-sur-vareze-38/2085726",
+   "titre": "Maison 6 pieces en vente interactive, Auberives Sur Vareze",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:netty-suzanneimmo38-appt-8792": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -3585,6 +3855,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "bienici:adapt-immo-7600633683": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 164000.0
+    }
+   ],
+   "meilleur_score": 42.1,
+   "url": "https://www.bienici.com/annonce/vente/le-havre/maison/4pieces/adapt-immo-7600633683",
+   "titre": "Maison",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:citya-1-257-TAPP257-962353": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -3626,21 +3911,6 @@
    "meilleur_score": 42.0,
    "url": "https://www.bienici.com/annonce/vente/annecy/appartement/2pieces/visiteonline-p_6362620",
    "titre": "Appartement 2 pièces - 5608 m2 - ANNECY-LE-VIEUX",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2094234": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 170000.0
-    }
-   ],
-   "meilleur_score": 42.0,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/lyon-05-69005/2094234",
-   "titre": "Appartement 3 pieces a Lyon 5e Arrondissement (notaire)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -4065,6 +4335,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:T3 AUBAGNE": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 97749.99999999999
+    }
+   ],
+   "meilleur_score": 41.4,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/aubagne-13/2087377",
+   "titre": "Appartement 3 pieces en vente interactive, Aubagne",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:ag752647-554456798": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -4151,6 +4436,21 @@
    "meilleur_score": 41.3,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/appartement/tours-37/1863767",
    "titre": "Appartement 4 pieces a Tours (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:VNI1285": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 287500.0
+    }
+   ],
+   "meilleur_score": 41.3,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/st-chamas-13/2093205",
+   "titre": "Maison 7 pieces en vente interactive, St Chamas",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -4470,21 +4770,6 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "notaires:2042575": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 180000.0
-    }
-   ],
-   "meilleur_score": 40.7,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/tours-37/2042575",
-   "titre": "Maison 4 pieces a Tours (notaire)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
   "notaires:1927862": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -4755,6 +5040,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:37100-368": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 92000.0
+    }
+   ],
+   "meilleur_score": 40.3,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/st-pierre-des-corps-37/2086569",
+   "titre": "Maison 3 pieces en vente interactive, St Pierre Des Corps",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:immo-facile-61644640": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -4796,6 +5096,21 @@
    "meilleur_score": 40.2,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/appartement/rouen-76/2094016",
    "titre": "Appartement 3 pieces a Rouen (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "bienici:ag751319-534689006": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 113000.0
+    }
+   ],
+   "meilleur_score": 40.1,
+   "url": "https://www.bienici.com/annonce/vente/marseille-6e/appartement/1piece/ag751319-534689006",
+   "titre": "T1 atypique avec mezzanine",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -4995,21 +5310,6 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "notaires:2025179": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 211000.0
-    }
-   ],
-   "meilleur_score": 39.7,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/annecy-74/2025179",
-   "titre": "Appartement 2 pieces a Annecy (notaire)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
   "notaires:1844053": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -5021,6 +5321,36 @@
    "meilleur_score": 39.6,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/appartement/nantes-44/1844053",
    "titre": "Appartement 3 pieces a Nantes (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:7403572AM": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 286350.0
+    }
+   ],
+   "meilleur_score": 39.6,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/frangy-74/2092157",
+   "titre": "Maison 7 pieces en vente interactive, Frangy",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:37037/431": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 287500.0
+    }
+   ],
+   "meilleur_score": 39.6,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/monnaie-37/2086958",
+   "titre": "Maison 7 pieces en vente interactive, Monnaie",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -5040,6 +5370,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:VNIMANUELLE1": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 149500.0
+    }
+   ],
+   "meilleur_score": 39.5,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/arles-13/2089309",
+   "titre": "Maison 3 pieces en vente interactive, Arles",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:netty-company54512vzx-appt-2044": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -5055,21 +5400,6 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "notaires:2010523": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 310000.0
-    }
-   ],
-   "meilleur_score": 39.3,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/annecy-74/2010523",
-   "titre": "Appartement 4 pieces a Annecy (notaire)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
   "notaires:1914148": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -5081,6 +5411,21 @@
    "meilleur_score": 39.2,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/appartement/nantes-44/1914148",
    "titre": "Appartement 5 pieces a Nantes (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:2026-P-LYON5": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 195499.99999999997
+    }
+   ],
+   "meilleur_score": 39.2,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/lyon-05-69005/2094234",
+   "titre": "Appartement 3 pieces en vente interactive, Lyon 5",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -5141,6 +5486,21 @@
    "meilleur_score": 39.0,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/maison/nantes-44/2086044",
    "titre": "Maison 4 pieces a Nantes (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "licitor:110099": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 166202.94782608698
+    }
+   ],
+   "meilleur_score": 39.0,
+   "url": "https://www.licitor.com/annonce/11/00/99/vente-aux-encheres/un-appartement/montpellier/herault/110099.html",
+   "titre": "Un appartement aux encheres, Montpellier (TJ Montpellier, 09/11/2026)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -5460,21 +5820,6 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "bienici:hektor-jeromebaille9-734": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 165000.0
-    }
-   ],
-   "meilleur_score": 37.8,
-   "url": "https://www.bienici.com/annonce/vente/marseille-8e/appartement/2pieces/hektor-jeromebaille9-734",
-   "titre": "LA PLAGE",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
   "notaires:2083965": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -5546,21 +5891,6 @@
    "meilleur_score": 37.5,
    "url": "https://www.bienici.com/annonce/vente/le-havre/appartement/4pieces/iad-france-1007568",
    "titre": "Vente Appartement 4 pièces",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "notaires:2038085": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 125000.0
-    }
-   ],
-   "meilleur_score": 37.5,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-12-13012/2038085",
-   "titre": "Appartement 1 pieces a Marseille 12e Arrondissement (notaire)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -5820,21 +6150,6 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
-  "notaires:2083949": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 81000.0
-    }
-   ],
-   "meilleur_score": 36.8,
-   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/marseille-16-13016/2083949",
-   "titre": "Maison 3 pieces a Marseille 16e Arrondissement (notaire)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
   "notaires:2085096": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -5846,6 +6161,21 @@
    "meilleur_score": 36.7,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/appartement/reims-51/2085096",
    "titre": "Appartement 3 pieces a Reims (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:MARSEILLE11": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 189749.99999999997
+    }
+   ],
+   "meilleur_score": 36.7,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/marseille-11-13011/2019502",
+   "titre": "Appartement 4 pieces en vente interactive, Marseille 11",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -6015,6 +6345,36 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:M13-10/2026": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 74175.0
+    }
+   ],
+   "meilleur_score": 36.3,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/tancarville-76/2084675",
+   "titre": "Maison 3 pieces en vente interactive, Tancarville",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "etat:39276": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 446533.33333333326
+    }
+   ],
+   "meilleur_score": 36.3,
+   "url": "https://cessions.immobilier-etat.gouv.fr/biens/appartement-avec-deux-greniers-et-deux-caves",
+   "titre": "Appartement Avec Deux Greniers Et Deux Caves (bien de l'Etat)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:ag136230-554377253": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -6041,21 +6401,6 @@
    "meilleur_score": 36.2,
    "url": "https://www.bienici.com/annonce/vente/montpellier/appartement/1piece/immo-facile-61645384",
    "titre": "Appartement T1 bis Loué",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "bienici:adapt-immo-7600633694": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 45000.0
-    }
-   ],
-   "meilleur_score": 36.2,
-   "url": "https://www.bienici.com/annonce/vente/le-havre/appartement/1piece/adapt-immo-7600633694",
-   "titre": "Appartement",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -6386,6 +6731,21 @@
    "meilleur_score": 35.4,
    "url": "https://www.bienici.com/annonce/vente/perpignan/maison/5pieces/ag661482-554323088",
    "titre": "Maison 4 chambres à proximité du centre ville de Perpignan",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:VNI13016": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 93150.0
+    }
+   ],
+   "meilleur_score": 35.4,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/marseille-16-13016/2083949",
+   "titre": "Maison 3 pieces en vente interactive, Marseille 16",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -6750,6 +7110,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:VNIAD2026GIL": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 368287.5
+    }
+   ],
+   "meilleur_score": 34.7,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/immeuble/rouen-76/2096621",
+   "titre": "Immeuble pieces en vente interactive, Rouen",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:netty-company54208lmf-appt-2246": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -7110,6 +7485,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "bienici:iad-france-1054235": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 105000.0
+    }
+   ],
+   "meilleur_score": 33.8,
+   "url": "https://www.bienici.com/annonce/vente/montpellier/appartement/1piece/iad-france-1054235",
+   "titre": "Vente Appartement 1 pièce",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:netty-company55116nji-appt-10506": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -7256,6 +7646,21 @@
    "meilleur_score": 33.5,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/appartement/montpellier-34/2038688",
    "titre": "Appartement 2 pieces a Montpellier (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:VNI CIVRIEUX 69380": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 56349.99999999999
+    }
+   ],
+   "meilleur_score": 33.5,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/civrieux-d-azergues-69/2085730",
+   "titre": "Maison 3 pieces en vente interactive, Civrieux D Azergues",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -7755,6 +8160,36 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:2026-Y-AP-VIENNE": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 109249.99999999999
+    }
+   ],
+   "meilleur_score": 32.0,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/vienne-38/2091596",
+   "titre": "Appartement 2 pieces en vente interactive, Vienne",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:37008-2786": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 171350.0
+    }
+   ],
+   "meilleur_score": 32.0,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/st-pierre-des-corps-37/2083371",
+   "titre": "Maison 4 pieces en vente interactive, St Pierre Des Corps",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:ag696777-554257547": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -7901,6 +8336,21 @@
    "meilleur_score": 31.7,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/appartement/perpignan-66/2089704",
    "titre": "Appartement 3 pieces a Perpignan (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:13074-1095491": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 322000.0
+    }
+   ],
+   "meilleur_score": 31.7,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/mallemort-13/2074786",
+   "titre": "Maison 4 pieces en vente interactive, Mallemort",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -8141,6 +8591,21 @@
    "meilleur_score": 31.2,
    "url": "https://www.bienici.com/annonce/vente/mulhouse/appartement/2pieces/guy-hoquet-18-GT0258-5076",
    "titre": "Appartement",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:VNI-01-2026": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 245639.99999999997
+    }
+   ],
+   "meilleur_score": 31.2,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/peynier-13/2094039",
+   "titre": "Maison 5 pieces en vente interactive, Peynier",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -8880,6 +9345,36 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:2026002951": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 287500.0
+    }
+   ],
+   "meilleur_score": 29.0,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/st-julien-en-genevois-74/2080373",
+   "titre": "Appartement 3 pieces en vente interactive, St Julien En Genevois",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:MONTA": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 194349.99999999997
+    }
+   ],
+   "meilleur_score": 29.0,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/st-genest-lerpt-42/2083727",
+   "titre": "Maison 5 pieces en vente interactive, St Genest Lerpt",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:iad-france-1032231": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -8891,6 +9386,21 @@
    "meilleur_score": 28.9,
    "url": "https://www.bienici.com/annonce/vente/limoges/appartement/4pieces/iad-france-1032231",
    "titre": "Vente Appartement 4 pièces",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "bienici:citya-1-133-TAPP133-962418": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 116000.0
+    }
+   ],
+   "meilleur_score": 28.9,
+   "url": "https://www.bienici.com/annonce/vente/tours/appartement/2pieces/citya-1-133-TAPP133-962418",
+   "titre": "Appartement",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -8996,6 +9506,21 @@
    "meilleur_score": 28.6,
    "url": "https://www.bienici.com/annonce/vente/limoges/maison/8pieces/immo-facile-61182021",
    "titre": "Superbe maison au Puy La Rodas",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "bienici:hektor-clermontprovinc-27178": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 89500.0
+    }
+   ],
+   "meilleur_score": 28.5,
+   "url": "https://www.bienici.com/annonce/vente/clermont-ferrand/appartement/2pieces/hektor-clermontprovinc-27178",
+   "titre": "CLERMONT-FD  St Alyre",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -9645,6 +10170,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "etat:39796": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 711315.7894736843
+    }
+   ],
+   "meilleur_score": 26.4,
+   "url": "https://cessions.immobilier-etat.gouv.fr/biens/lot-de-4-maisons-renover-chateau-arnoux-saint-auban-04",
+   "titre": "Lot De 4 Maisons à Rénover à Chateau Arnoux Saint Auban (04) (bien de l'Etat)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:ag750129-553287347": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -9656,6 +10196,21 @@
    "meilleur_score": 26.3,
    "url": "https://www.bienici.com/annonce/vente/limoges/appartement/2pieces/ag750129-553287347",
    "titre": "Appartement",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "bienici:ag134955-554895014": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 125000.0
+    }
+   ],
+   "meilleur_score": 26.2,
+   "url": "https://www.bienici.com/annonce/vente/marseille-13e/appartement/2pieces/ag134955-554895014",
+   "titre": "Coeur de St Just T2 Terrasse",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -9701,6 +10256,21 @@
    "meilleur_score": 26.0,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/appartement/grenoble-38/1930050",
    "titre": "Appartement 2 pieces a Grenoble (notaire)",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "vni:2026-C-BRON": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 180000.0
+    }
+   ],
+   "meilleur_score": 26.0,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/appartement/bron-69/2070498",
+   "titre": "Appartement 3 pieces en vente interactive, Bron",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -10166,21 +10736,6 @@
    "meilleur_score": 24.6,
    "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/appartement/le-havre-76/1915363",
    "titre": "Appartement 1 pieces a Havre (notaire)",
-   "derniere_vue": "2026-10-19",
-   "nouvelle": true,
-   "baisse_prix_pct": 0.0
-  },
-  "bienici:hektor-mtev13006-9750": {
-   "premiere_vue": "2026-10-19",
-   "prix": [
-    {
-     "date": "2026-10-19",
-     "prix": 190000.0
-    }
-   ],
-   "meilleur_score": 24.5,
-   "url": "https://www.bienici.com/annonce/vente/marseille-4e/appartement/3pieces/hektor-mtev13006-9750",
-   "titre": "EXCLUSIVITE  - CHUTES-LAVIE - T3 - 60 M2 - TERRASSE 25M2 - 1",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
@@ -10665,6 +11220,21 @@
    "nouvelle": true,
    "baisse_prix_pct": 0.0
   },
+  "vni:A 2026 00787": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 216429.99999999997
+    }
+   ],
+   "meilleur_score": 23.7,
+   "url": "https://www.immo-interactif.fr/encheres-en-ligne/maison/thorigne-d-anjou-49/2083481",
+   "titre": "Maison 4 pieces en vente interactive, Thorigne D Anjou",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
   "bienici:iad-france-1050332": {
    "premiere_vue": "2026-10-19",
    "prix": [
@@ -10916,6 +11486,21 @@
    "meilleur_score": 23.0,
    "url": "https://www.bienici.com/annonce/vente/meythet/appartement/4pieces/netty-company55460jlu-appt-5009",
    "titre": "Appartement à vendre meythet",
+   "derniere_vue": "2026-10-19",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
+  },
+  "etat:39643": {
+   "premiere_vue": "2026-10-19",
+   "prix": [
+    {
+     "date": "2026-10-19",
+     "prix": 39000.0
+    }
+   ],
+   "meilleur_score": 21.7,
+   "url": "https://cessions.immobilier-etat.gouv.fr/biens/maison-mitoyenne-142-m2-54-route-du-barrage-de-vezins-50540-isigny-le-buat-isigny-le-buat-50",
+   "titre": "Maison Mitoyenne - 142 M² - 54 Route Du Barrage De Vézins, 50540 Isigny-le-buat  ... (bien de l'Etat)",
    "derniere_vue": "2026-10-19",
    "nouvelle": true,
    "baisse_prix_pct": 0.0

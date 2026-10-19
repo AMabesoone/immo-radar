@@ -156,6 +156,21 @@ def calculer_score(
     if market.encadrement_loyers:
         flags.append("Encadrement des loyers : verifier le loyer de reference majore avant de retenir le loyer estime")
 
+    # 8. Mode de vente particulier : information, pas de penalite de score (le prix attendu integre deja la decote).
+    if listing.mode_vente == "enchere_judiciaire":
+        forts.append(f"Vente aux encheres judiciaires le {listing.date_vente} : mise a prix {listing.mise_a_prix:,.0f} EUR ({listing.prix_estime_note})")
+        flags.append("Encheres : pas de condition suspensive de pret, consignation 10 %, frais 10 a 15 %, surenchere possible 10 jours")
+        if listing.occupe:
+            flags.append("Bien occupe : procedure d'expulsion ou bail a reprendre, 12 a 24 mois sans loyer possible")
+    elif listing.mode_vente == "vente_interactive":
+        forts.append(f"Vente notariale interactive (ouverture {listing.date_vente}) : premiere offre {listing.mise_a_prix:,.0f} EUR ({listing.prix_estime_note})")
+    elif listing.mode_vente == "cession_etat":
+        forts.append(f"Bien de l'Etat (Domaines) : {listing.prix_estime_note}")
+        if not listing.mise_a_prix:
+            flags.append("Prix non communique par l'Etat : le cash-flow repose sur une hypothese d'offre a valider")
+        if listing.extra.get("jours_restants") is not None:
+            flags.append(f"Date limite de la procedure dans {listing.extra['jours_restants']} jours")
+
     total = round(sum(comp.values()), 1)
     if total >= 75:
         verdict = "A visiter en priorite"

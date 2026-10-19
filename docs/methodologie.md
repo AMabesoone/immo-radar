@@ -13,7 +13,7 @@ Date : 19 octobre 2026. Ce document résume ce que les meilleurs investisseurs, 
 
 ## 2. Ce que le module fait chaque semaine
 
-1. **Collecte** : annonces de vente sur Bien'ici (JSON public, agences) et immobilier.notaires.fr (API publique, biens de succession) pour les 20 villes de `config/config.yaml`, plus un CSV manuel pour les biens off-market ou les alertes e-mail copiées. Leboncoin et SeLoger sont inaccessibles depuis un serveur (DataDome, jurisprudence Jinka 2026) : les couvrir suppose un agrégateur sous licence (stream.estate ou Moteurimmo, 70 à 100 €/mois).
+1. **Collecte** : annonces de vente sur Bien'ici (JSON public, agences) et immobilier.notaires.fr (API publique, biens de succession) pour les 20 villes de `config/config.yaml`, plus un CSV manuel pour les biens off-market ou les alertes e-mail copiées. Trois circuits à prix décotés s'ajoutent : les ventes judiciaires de biens saisis (Licitor, pages d'audience des tribunaux des villes cibles, mise à prix et date d'audience), les ventes notariales interactives (API immo-interactif, première offre et date d'ouverture) et les cessions immobilières de l'État (portail des Domaines, toute la France, prix parfois non publié). Leboncoin et SeLoger sont inaccessibles depuis un serveur (DataDome, jurisprudence Jinka 2026) : les couvrir suppose un agrégateur sous licence (stream.estate ou Moteurimmo, 70 à 100 €/mois).
 2. **Filtres** : prix, surface minimale (12 m²), exclusion viager, nue-propriété, résidences services, parkings et caves.
 3. **Enrichissement marché** par commune ou arrondissement : loyer d'annonce au m² (Carte des loyers 2025, ministère du Logement, par typologie), médiane et quartiles du prix au m² sur les ventes réelles 2024 à 2026 (DVF géolocalisées), prix par nuit et occupation Airbnb (Inside Airbnb pour Paris, Lyon, Bordeaux, Pays basque ; hypothèses par catégorie de ville ailleurs), contraintes réglementaires (`config/reglementation.yaml`).
 4. **Plan de financement** : prix négocié (marge par ville : Nantes 10 %, Lyon 3 %, défaut 5 %), notaire 8 %, travaux estimés d'après l'annonce (450, 1 200 ou 2 200 €/m²) et le DPE, ameublement 120 €/m², apport x % du coût total, garantie et frais de dossier financés, mensualité assurance comprise, intérêts de l'année 1.
@@ -21,6 +21,16 @@ Date : 19 octobre 2026. Ce document résume ce que les meilleurs investisseurs, 
 6. **Fiscalité comparée** pour chaque scénario : micro-foncier, réel foncier (déficit imputable 10 700 €), réel foncier avec amortissement Jeanbrun (si travaux ≥ 30 % du prix), micro-BIC (50 % ou 30 % selon classement), LMNP réel (amortissement par composants, règle de l'article 39 C, report illimité), SCI à l'IS (15 % puis 25 %, trésorerie bloquée). Le "meilleur régime" retenu est celui qui maximise le cash-flow après impôt parmi les régimes où le cash est disponible.
 7. **Score 0 à 100** et **verdict**, red flags, points forts, checklist avant offre.
 8. **Sorties** : onglets Google Sheets (Opportunités, Historique, Paramètres), tableau de bord HTML sur GitHub Pages, état inter-semaines (nouveautés, baisses de prix depuis la première vue).
+
+## 2 bis. Les circuits à prix décotés et comment le modèle les traite
+
+| Circuit | Source | Prix retenu dans l'analyse | Frais | Spécificités |
+|---|---|---|---|---|
+| Enchères judiciaires (biens saisis) | Licitor, tribunaux des villes cibles | Mise à prix × 1,6, plafonné à la valeur DVF moins 20 % ; bien occupé : moins 15 % | 12 % (droits de mutation, émoluments d'avocat, frais de poursuite) | Pas de condition suspensive de prêt, consignation 10 %, surenchère du dixième pendant 10 jours, visite unique, paiement sous 2 à 3 mois. Décote observée 10 à 40 %. |
+| Ventes notariales interactives | immo-interactif (API publique) | Première offre × 1,15, plafonné à la valeur DVF moins 5 % | Notaire 8 % | Agrément préalable du notaire, le vendeur n'est pas tenu d'accepter, les enchères en ligne dépassent souvent le marché : fixer un plafond DVF. |
+| Cessions de l'État (Domaines, DGFiP) | cessions.immobilier-etat.gouv.fr | Mise à prix publiée, sinon valeur DVF moins 15 % (hypothèse signalée) | Notaire 8 % | Appel d'offres, adjudication ou vente interactive ; anciens logements de fonction souvent à rénover ; cahier des charges et date limite sur la fiche. |
+
+Le score ne pénalise pas ces modes de vente : la décote est déjà dans le prix attendu. Les contraintes (financement sans condition suspensive, occupation, date limite) sont remontées en alertes et dans la checklist.
 
 ## 3. Le score
 

@@ -68,6 +68,20 @@ recherche:
     - "residence etudiante"
     - "résidence étudiante"
 
+sources_speciales:
+  encheres_judiciaires: true           # licitor.com : biens saisis vendus aux encheres des tribunaux des villes cibles
+  tribunaux_supplementaires: []        # ex: ["Bobigny", "Creteil"] : tribunaux hors villes cibles a suivre
+  coef_adjudication_attendue: 1.6      # prix d'adjudication attendu = mise a prix x coef (borne par la valeur DVF)
+  decote_encheres_vs_marche: 0.20      # plafond : valeur DVF x (1 - decote)
+  frais_encheres_pct: 0.12             # droits de mutation + emoluments d'avocat + frais de poursuite (environ 10 a 15 %)
+  decote_bien_occupe: 0.15             # bien occupe : decote de valeur + duree avant mise en location
+  ventes_interactives: true            # immo-interactif.fr (encheres en ligne des notaires)
+  coef_premiere_offre: 1.15            # prix final attendu = premiere offre x coef (borne par la valeur DVF x (1 - decote))
+  decote_vni_vs_marche: 0.05
+  cessions_etat: true                  # cessions.immobilier-etat.gouv.fr (biens de l'Etat, toute la France)
+  cessions_etat_pages: 6
+  decote_etat_sans_prix: 0.15          # prix non communique : valeur DVF x (1 - decote) comme hypothese d'offre
+
 financement:
   apport_pct: 0.10                     # x % du cout total du projet (prix + notaire + travaux + meubles)
   financer_frais_notaire: true         # pret a 110 % si la banque suit ; sinon apport couvre les frais

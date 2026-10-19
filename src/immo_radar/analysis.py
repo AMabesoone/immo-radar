@@ -19,6 +19,18 @@ from .models import Listing, MarketData
 
 log = logging.getLogger(__name__)
 
+def categorie_par_population(population: int | None) -> str:
+    if not population:
+        return "petite_ville"
+    if population >= 400000:
+        return "metropole"
+    if population >= 120000:
+        return "grande_ville"
+    if population >= 30000:
+        return "ville_moyenne"
+    return "petite_ville"
+
+
 def _norm_ville(text: str) -> str:
     import unicodedata
     text = unicodedata.normalize("NFKD", text or "").encode("ascii", "ignore").decode().lower()
@@ -95,6 +107,8 @@ class Analyseur:
         if key in self._market_cache:
             return self._market_cache[key]
         insee, commune, population = resolve(lst.code_postal, lst.ville)
+        if not insee and lst.extra.get("insee"):
+            insee = str(lst.extra["insee"])
         md = MarketData(code_insee=insee, commune=commune, population=population)
         if insee:
             row = self.loyers.lookup(insee, lst.type_bien, lst.pieces)
@@ -129,17 +143,60 @@ class Analyseur:
         return "aucun"
 
     # -------------------------------------------------------------- analyse
-    def analyser(self, lst: Listing) -> Opportunite | None:
+    def prix_attendu(self, lst: Listing, md: MarketData) -> tuple[float, float, str]:
+        """(prix retenu pour l'analyse, taux de frais d'acquisition, note) selon le mode de vente."""
         cfg = self.cfg
-        md = self.marche(lst)
-        niveau = self.niveau_travaux(lst)
         acq = cfg["acquisition"]
+        sp = cfg.get("sources_speciales", {})
+        notaire_pct = float(acq["frais_notaire_neuf_pct"] if lst.neuf else acq["frais_notaire_ancien_pct"])
+        valeur_dvf = md.prix_m2_dvf_median * lst.surface if md.prix_m2_dvf_median else None
+        if lst.mode_vente == "enchere_judiciaire":
+            prix = (lst.mise_a_prix or lst.prix) * float(sp.get("coef_adjudication_attendue", 1.6))
+            note = f"Adjudication attendue = mise a prix {lst.mise_a_prix:,.0f} EUR x {float(sp.get('coef_adjudication_attendue', 1.6)):.2f}"
+            if valeur_dvf:
+                plafond = valeur_dvf * (1 - float(sp.get("decote_encheres_vs_marche", 0.20)))
+                if prix > plafond:
+                    prix, note = plafond, f"Adjudication attendue plafonnee a la valeur DVF ({valeur_dvf:,.0f} EUR) moins {float(sp.get('decote_encheres_vs_marche', 0.20)):.0%}"
+            if lst.occupe:
+                prix *= 1 - float(sp.get("decote_bien_occupe", 0.15))
+                note += " ; bien occupe : decote supplementaire"
+            return prix, float(sp.get("frais_encheres_pct", 0.12)), note
+        if lst.mode_vente == "vente_interactive":
+            prix = (lst.mise_a_prix or lst.prix) * float(sp.get("coef_premiere_offre", 1.15))
+            note = f"Prix final attendu = premiere offre {lst.mise_a_prix:,.0f} EUR x {float(sp.get('coef_premiere_offre', 1.15)):.2f}"
+            if valeur_dvf:
+                plafond = valeur_dvf * (1 - float(sp.get("decote_vni_vs_marche", 0.05)))
+                if prix > plafond:
+                    prix, note = plafond, f"Prix final attendu plafonne a la valeur DVF ({valeur_dvf:,.0f} EUR) moins {float(sp.get('decote_vni_vs_marche', 0.05)):.0%}"
+            return max(prix, lst.mise_a_prix or 0), notaire_pct, note
+        if lst.mode_vente == "cession_etat":
+            if lst.prix and lst.prix > 0:
+                return lst.prix, notaire_pct, f"Mise a prix / prix annonce par l'Etat : {lst.prix:,.0f} EUR"
+            if valeur_dvf:
+                d = float(sp.get("decote_etat_sans_prix", 0.15))
+                return valeur_dvf * (1 - d), notaire_pct, f"Prix non communique : hypothese d'offre = valeur DVF ({valeur_dvf:,.0f} EUR) moins {d:.0%}"
+            return 0.0, notaire_pct, "Prix non communique et pas de reference DVF : analyse impossible"
         decote = float(acq.get("decote_negociation_cible", 0))
         for ville, marge in (acq.get("decote_negociation_par_ville") or {}).items():
             if _norm_ville(ville) == _norm_ville(lst.ville):
                 decote = float(marge)
-        prix_negocie = lst.prix * (1 - decote)
-        notaire_pct = acq["frais_notaire_neuf_pct"] if lst.neuf else acq["frais_notaire_ancien_pct"]
+        return lst.prix * (1 - decote), notaire_pct, f"Prix affiche {lst.prix:,.0f} EUR moins {decote:.0%} de negociation"
+
+    def analyser(self, lst: Listing) -> Opportunite | None:
+        cfg = self.cfg
+        md = self.marche(lst)
+        if lst.categorie_ville == "a_determiner":
+            lst.categorie_ville = categorie_par_population(md.population)
+        niveau = self.niveau_travaux(lst)
+        acq = cfg["acquisition"]
+        prix_negocie, notaire_pct, note = self.prix_attendu(lst, md)
+        if prix_negocie <= 0:
+            return None
+        lst.prix_estime_note = note
+        if lst.mode_vente != "classique":
+            # la mise a prix reste dans lst.mise_a_prix ; le prix "affiche" devient le prix attendu pour que
+            # la decote vs DVF, le prix au m2 et les sorties portent sur un prix realiste
+            lst.prix = prix_negocie
         travaux = lst.surface * float(acq["travaux_par_m2"].get(niveau, 0))
         ameublement = max(lst.surface * float(acq["ameublement_par_m2"]), float(acq["ameublement_minimum"]))
         plan = construire_plan(prix_negocie, prix_negocie * float(notaire_pct), travaux, ameublement, cfg["financement"])
@@ -175,4 +232,26 @@ class Analyseur:
             items.append("Demander le bail en cours, les 3 dernieres quittances, l'etat des lieux et le depot de garantie")
         if lst.annee_construction and lst.annee_construction < 1949:
             items.append("Diagnostic plomb et etat de la structure (immeuble d'avant 1949)")
+        if lst.mode_vente == "enchere_judiciaire":
+            items += [
+                "Lire le cahier des conditions de vente et le PV descriptif (lien sur l'annonce Licitor) : charges, occupation, servitudes, frais",
+                "Consigner 10 % de la mise a prix (minimum 3 000 EUR) par cheque de banque et mandater un avocat inscrit au barreau du tribunal",
+                "Financement : pas de condition suspensive de pret ; obtenir un accord de principe bancaire AVANT l'audience (paiement sous 2 a 3 mois)",
+                "Prevoir la surenchere du dixieme possible pendant 10 jours apres l'adjudication",
+                "Visite collective unique organisee par l'avocat ou l'huissier : y aller avec un artisan",
+            ]
+            if lst.occupe:
+                items.append("Bien occupe : identifier le titre d'occupation (bail, debiteur saisi) et budgeter 12 a 24 mois de procedure d'expulsion")
+        if lst.mode_vente == "vente_interactive":
+            items += [
+                "S'inscrire sur immo-interactif et obtenir l'agrement du notaire avant l'ouverture des offres",
+                "Fixer un prix plafond a partir de la valeur DVF : les encheres en ligne depassent souvent le marche",
+                "Le vendeur n'est pas tenu d'accepter la meilleure offre : garder un plan B",
+            ]
+        if lst.mode_vente == "cession_etat":
+            items += [
+                "Telecharger le cahier des charges sur la fiche (procedure, date limite, depot de garantie, visites)",
+                "Verifier le zonage d'urbanisme et l'etat (logement de fonction souvent a renover, parfois hors copropriete)",
+                "Comparer la mise a prix a la valeur DVF : l'Etat vend au prix du marche sauf carence",
+            ]
         return items

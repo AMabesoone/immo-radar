@@ -40,6 +40,11 @@ class Listing:
     neuf: bool = False
     loue_actuellement: bool = False
     loyer_actuel: float | None = None
+    mode_vente: str = "classique"       # classique | enchere_judiciaire | vente_interactive | cession_etat
+    mise_a_prix: float | None = None    # mise a prix / premiere offre / prix plancher
+    date_vente: str = ""                # date d'audience ou d'ouverture des offres
+    occupe: bool = False                # bien occupe (encheres : procedure d'expulsion a prevoir)
+    prix_estime_note: str = ""          # comment le prix attendu a ete estime
     extra: dict[str, Any] = field(default_factory=dict)
 
     @property

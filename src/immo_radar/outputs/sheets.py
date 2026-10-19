@@ -15,7 +15,7 @@ from typing import Any
 log = logging.getLogger(__name__)
 
 COLONNES = [
-    "Date", "Score", "Verdict", "Ville", "CP", "Titre", "Prix", "Surface", "Pieces", "Prix/m2", "DVF median/m2", "Decote",
+    "Date", "Score", "Verdict", "Mode de vente", "Mise a prix", "Date vente", "Ville", "CP", "Titre", "Prix retenu", "Surface", "Pieces", "Prix/m2", "DVF median/m2", "Decote",
     "DPE", "Travaux", "Cout total projet", "Apport", "Mensualite", "Meilleur scenario LD", "Loyer LD", "Rendement brut",
     "Rendement net", "Regime fiscal", "Cash-flow LD apres impot", "Courte duree faisable", "ADR", "Occupation",
     "Cash-flow CD apres impot", "Points forts", "Red flags", "Nouvelle", "Baisse prix", "URL",
@@ -49,7 +49,8 @@ def ligne(opp: dict[str, Any], etat: dict[str, Any]) -> list[Any]:
     cd = next((s for s in opp["scenarios"] if s["nom"] == "courte_duree"), None)
     decote = (1 - lst["prix"] / lst["surface"] / md["prix_m2_dvf_median"]) if md.get("prix_m2_dvf_median") and lst["surface"] else None
     return [
-        date.today().isoformat(), sc["total"], sc["verdict"], lst["ville"], lst["code_postal"], lst["titre"][:80],
+        date.today().isoformat(), sc["total"], sc["verdict"], lst.get("mode_vente", "classique"), _eur(lst.get("mise_a_prix")), lst.get("date_vente") or "",
+        lst["ville"], lst["code_postal"], lst["titre"][:80],
         _eur(lst["prix"]), lst["surface"], lst["pieces"], _eur(lst["prix"] / lst["surface"] if lst["surface"] else None),
         _eur(md.get("prix_m2_dvf_median")), _pct(decote), lst.get("dpe") or "", opp["niveau_travaux"],
         _eur(plan["cout_total"]), _eur(plan["apport"]), _eur(plan["mensualite_totale"]),
