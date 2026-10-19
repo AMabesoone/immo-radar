@@ -31,11 +31,13 @@ def normalize(a: dict[str, Any], zone: str, categorie: str) -> Listing | None:
     if a.get("typeBien") not in TYPE_BACK:  # l'API ne respecte pas le filtre typeBien : terrains, locaux, garages
         return None
     desc = (a.get("descriptionFr") or "").strip()
+    url = a.get("urlDetailAnnonceFr") or ""
+    vni = "immo-interactif" in url
     return Listing(
         id=f"notaires:{a.get('annonceId') or a.get('id')}",
         source="notaires",
-        url=a.get("urlDetailAnnonceFr") or "",
-        titre=f"{TITRE_FR.get(a.get('typeBien'), 'Bien')} {a.get('nbPieces') or ''} pieces a {a.get('communeNom') or ''} (notaire)".replace("  ", " "),
+        url=url,
+        titre=f"{TITRE_FR.get(a.get('typeBien'), 'Bien')} {a.get('nbPieces') or ''} pieces a {a.get('communeNom') or ''} ({'vente interactive' if vni else 'notaire'})".replace("  ", " "),
         description=desc,
         prix=prix,
         surface=surface,
@@ -51,8 +53,10 @@ def normalize(a: dict[str, Any], zone: str, categorie: str) -> Listing | None:
         date_modification=a.get("dateMaj") or "",
         photos=int(a.get("nbPhoto") or 0),
         pro=True,
+        mode_vente="vente_interactive" if vni else "classique",
+        mise_a_prix=prix if vni else None,
         extra={"emoluments": a.get("emoluments"), "insee": a.get("inseeCommune"), "judiciaire": a.get("origineJudiciaire"),
-               "vente_interactive": a.get("typeAdjudication")},
+               "vente_interactive": vni},
     )
 
 

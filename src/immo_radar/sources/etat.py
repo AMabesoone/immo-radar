@@ -85,14 +85,62 @@ def _get(s, url: str):
         return s.get(url, timeout=30)
 
 
-def fetch_all(cfg_r: dict[str, Any], max_pages: int = 6) -> Iterable[Listing]:
+CACHE_PATH = None  # fixe par le pipeline : data/cache/etat.json
+
+
+def _charger_cache(path) -> list[Listing]:
+    import json
+    from pathlib import Path
+    p = Path(path)
+    if not p.exists():
+        return []
+    data = json.loads(p.read_text(encoding="utf-8"))
+    out = []
+    for d in data.get("listings", []):
+        d.pop("prix_m2", None)
+        out.append(Listing(**d))
+    age = (__import__("time").time() - data.get("_ts", 0)) / 86400
+    log.warning("Cessions de l'Etat : portail inaccessible depuis ce reseau, utilisation du cache (%d biens, %.0f jours). Rafraichir en local : python scripts/run_weekly.py --dry-run --limite 1", len(out), age)
+    return out
+
+
+def _sauver_cache(path, listings: list[Listing]) -> None:
+    import json, time
+    from pathlib import Path
+    p = Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps({"_ts": time.time(), "listings": [l.to_dict() for l in listings]}, ensure_ascii=False), encoding="utf-8")
+
+
+def fetch_all(cfg_r: dict[str, Any], max_pages: int = 6, cache_path=None) -> Iterable[Listing]:
+    """Lit le portail ; s'il refuse la connexion (403 hors France), retombe sur le cache versionne."""
+    collected: list[Listing] = []
+    ok = True
+    try:
+        for lst in _fetch_live(cfg_r, max_pages):
+            collected.append(lst)
+    except PermissionError:
+        ok = False
+    if not ok and cache_path:
+        yield from _charger_cache(cache_path)
+        return
+    if ok and cache_path:
+        _sauver_cache(cache_path, collected)
+    yield from collected
+
+
+def _fetch_live(cfg_r: dict[str, Any], max_pages: int = 6) -> Iterable[Listing]:
     s = session()
     s.headers["Accept"] = "text/html,*/*"
     n = 0
     for page_no in range(max_pages):
         try:
             r = _get(s, LIST_URL.format(page=page_no))
+            if r.status_code == 403 and page_no == 0:
+                raise PermissionError("403 : acces refuse depuis ce reseau")
             r.raise_for_status()
+        except PermissionError:
+            raise
         except Exception as exc:
             log.warning("cessions.immobilier-etat.gouv.fr : %s", exc)
             break

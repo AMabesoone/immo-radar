@@ -47,9 +47,12 @@ def test_filtre_modes_speciaux():
     enchere = Listing(id="e", source="licitor", url="", titre="Un appartement", description="", prix=25000, surface=40, pieces=2, type_bien="flat", ville="Lyon", code_postal="",
                       mode_vente="enchere_judiciaire", mise_a_prix=25000)
     etat_sans_prix = Listing(id="s", source="etat", url="", titre="Pavillon", description="", prix=0, surface=66, pieces=3, type_bien="house", ville="Jouy", code_postal="", mode_vente="cession_etat")
-    vni_doublon = Listing(id="n", source="notaires", url="https://www.immo-interactif.fr/x", titre="Appartement", description="", prix=100000, surface=50, pieces=2, type_bien="flat", ville="x", code_postal="")
-    res = filtrer([enchere, etat_sans_prix, vni_doublon], cfg_r, {"ventes_interactives": True})
-    assert [l.id for l in res] == ["e", "s"]  # mise a prix a 50 % du minimum acceptee, bien Etat sans prix garde, doublon VNI ecarte
+    vni_doublon = Listing(id="n", source="notaires", url="https://www.immo-interactif.fr/encheres-en-ligne/appartement/x-38/2069750", titre="Appartement", description="", prix=100000, surface=50, pieces=2, type_bien="flat", ville="x", code_postal="", mode_vente="vente_interactive", mise_a_prix=100000)
+    vni_source = Listing(id="v", source="immo_interactif", url="https://www.immo-interactif.fr/encheres-en-ligne/appartement/x-38/2069750", titre="Appartement", description="", prix=100000, surface=50, pieces=2, type_bien="flat", ville="x", code_postal="", mode_vente="vente_interactive", mise_a_prix=100000)
+    res = filtrer([enchere, etat_sans_prix, vni_doublon, vni_source], cfg_r, {"ventes_interactives": True})
+    assert [l.id for l in res] == ["e", "s", "v"]  # mise a prix a 50 % du minimum acceptee, bien Etat sans prix garde, doublon VNI ecarte au profit de la source immo-interactif
+    res2 = filtrer([enchere, vni_doublon], cfg_r, {"ventes_interactives": True})
+    assert [l.id for l in res2] == ["e", "n"]  # si immo-interactif n'a pas repondu (403 depuis le cloud), la VNI du flux notaires est conservee
 
 
 def test_categorie_par_population():
@@ -57,3 +60,11 @@ def test_categorie_par_population():
     assert categorie_par_population(150000) == "grande_ville"
     assert categorie_par_population(45000) == "ville_moyenne"
     assert categorie_par_population(None) == "petite_ville"
+
+
+def test_etat_cache_roundtrip(tmp_path):
+    from immo_radar.sources.etat import _sauver_cache, _charger_cache
+    l = Listing(id="etat:1", source="etat", url="u", titre="t", description="", prix=0, surface=66, pieces=3, type_bien="house", ville="Jouy", code_postal="", mode_vente="cession_etat", extra={"insee": "78322"})
+    _sauver_cache(tmp_path / "etat.json", [l])
+    back = _charger_cache(tmp_path / "etat.json")
+    assert len(back) == 1 and back[0].id == "etat:1" and back[0].extra["insee"] == "78322" and back[0].mode_vente == "cession_etat"

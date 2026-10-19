@@ -29,6 +29,8 @@ def filtrer(listings: list[Listing], cfg_r: dict[str, Any], cfg_sp: dict[str, An
     excl_titre = [_norm(k) for k in cfg_r.get("mots_cles_exclusion_titre", [])]
     out: list[Listing] = []
     vus: set[str] = set()
+    # identifiants des ventes interactives deja portees par la source immo-interactif (plus riche : date, statut)
+    ids_vni = {l.url.rstrip("/").split("/")[-1] for l in listings if l.source == "immo_interactif"}
     for lst in listings:
         if lst.id in vus:
             continue
@@ -46,7 +48,7 @@ def filtrer(listings: list[Listing], cfg_r: dict[str, Any], cfg_sp: dict[str, An
             prix_ref = None  # prix inconnu : estime plus tard par DVF
         if prix_ref is not None and not (float(cfg_r.get("prix_min", 0)) * (0.5 if lst.mode_vente != "classique" else 1.0) <= prix_ref <= float(cfg_r.get("prix_max", 1e9))):
             continue
-        if lst.source == "notaires" and "immo-interactif" in lst.url and cfg_sp.get("ventes_interactives", True):
+        if lst.source == "notaires" and "immo-interactif" in lst.url and lst.url.rstrip("/").split("/")[-1] in ids_vni:
             continue  # doublon : la source immo-interactif porte la premiere offre et la date
         out.append(lst)
     return out
@@ -83,7 +85,7 @@ def executer(config_path: str | None = None, dry_run: bool = False, limite: int 
                 deps[insee[:3] if insee.startswith("97") else insee[:2]] = (ville["zone"], ville.get("categorie", "ville_moyenne"))
         bruts += _collecter("immo_interactif", immo_interactif.fetch_all(cfg_r, deps))
     if cfg_sp.get("cessions_etat", True):
-        bruts += _collecter("etat", source_etat.fetch_all(cfg_r, max_pages=int(cfg_sp.get("cessions_etat_pages", 6))))
+        bruts += _collecter("etat", source_etat.fetch_all(cfg_r, max_pages=int(cfg_sp.get("cessions_etat_pages", 6)), cache_path=ROOT / "data" / "cache" / "etat.json"))
     bruts += csv_import.load(ROOT / "data" / "annonces_manuelles.csv")
     listings = filtrer(bruts, cfg_r, cfg_sp)
     if limite:
