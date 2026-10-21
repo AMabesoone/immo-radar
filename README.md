@@ -1,6 +1,6 @@
 # Immo Radar
 
-Radar hebdomadaire d'opportunités d'investissement locatif en France, longue et courte durée, analysées à 360 degrés : financement à crédit, cash-flow par scénario d'exploitation, fiscalité comparée, faisabilité réglementaire, risques, score. Tourne tous les lundis sur GitHub Actions, écrit dans un Google Sheet et publie un tableau de bord HTML sur GitHub Pages.
+Radar hebdomadaire d'opportunités d'investissement locatif en France, longue et courte durée, analysées à 360 degrés : financement à crédit, cash-flow par scénario d'exploitation, fiscalité comparée, faisabilité réglementaire, risques, score. Tourne tous les jours à 7h30 (Paris) sur GitHub Actions, écrit dans un Google Sheet et publie un tableau de bord HTML sur GitHub Pages.
 
 - Tableau de bord : `docs/index.html` (GitHub Pages, dossier `docs/`)
 - Méthodologie et synthèse des bonnes pratiques : [docs/methodologie.md](docs/methodologie.md)
@@ -36,6 +36,17 @@ Sans variables Google, le script génère uniquement `docs/index.html`, `docs/da
 
 L'onglet `Parametres` permet de surcharger n'importe quelle valeur de `config/config.yaml` sans toucher au code : colonne A la clé en notation pointée (`financement.apport_pct`), colonne B la valeur (`0.15` ou `15%`). Exemples : `fiscalite.tmi`, `recherche.prix_max`, `exploitation.longue_duree.gestion_locative_pct` (0 pour autogestion), `exploitation.courte_duree.conciergerie_pct`, `scoring.score_minimum_publication`.
 
+## Alertes e-mail Leboncoin, SeLoger, PAP (lecture IMAP, zéro robot)
+
+Les portails envoient eux-mêmes les nouvelles annonces par e-mail pour une recherche sauvegardée. Le pipeline lit ces e-mails en IMAP et analyse les annonces comme les autres. Aucune visite automatisée des portails.
+
+1. Créer une boîte Gmail dédiée (recommandé, pour ne pas donner au robot l'accès à une boîte personnelle), activer la validation en deux étapes puis créer un mot de passe d'application (Compte Google > Sécurité > Mots de passe des applications).
+2. Sur Leboncoin (et SeLoger, PAP...), créer les recherches sauvegardées avec alerte e-mail vers cette boîte : départements 59 et 62, maisons et appartements, budget, « alerte quotidienne » ou « instantanée ».
+3. Dans le dépôt, Settings > Secrets and variables > Actions : `IMAP_USER` (l'adresse), `IMAP_PASSWORD` (le mot de passe d'application), `IMAP_HOST` facultatif (`imap.gmail.com` par défaut).
+4. Lancer le workflow à la main une fois qu'un premier e-mail d'alerte est arrivé et vérifier dans le log la ligne « Alertes e-mail : N annonces nouvelles ».
+
+Fonctionnement : seuls les e-mails non lus des expéditeurs listés dans `config/config.yaml` (`sources_speciales.alertes_email.expediteurs`) sont lus, puis marqués comme lus. Chaque annonce est extraite (lien, titre, prix, ville, surface, pièces) et conservée 45 jours dans `data/cache/alertes_email.json`. Une annonce sans surface dans l'e-mail n'est pas analysable et est ignorée (le log en donne le nombre). Le format des e-mails change parfois : si l'extraction tombe à zéro, transmettre un e-mail d'exemple pour ajuster `src/immo_radar/sources/email_alerts.py`.
+
 ## GitHub Pages
 
 Settings > Pages > Source : Deploy from a branch, branche `main`, dossier `/docs`. Le workflow commite `docs/index.html` et `docs/data.json` à chaque scan.
@@ -47,6 +58,7 @@ Settings > Pages > Source : Deploy from a branch, branche `main`, dossier `/docs
 - Poids du score et seuil de publication : section `scoring`.
 - Règles communales (changement d'usage, compensation, quotas, encadrement des loyers, taxe d'habitation secondaire) : `config/reglementation.yaml`. À relire avant chaque offre, les règlements changent chaque semestre.
 - Biens off-market ou alertes e-mail : `data/annonces_manuelles.csv` (voir l'en-tête attendu dans `src/immo_radar/sources/csv_import.py`).
+- Alertes e-mail des portails (Leboncoin, SeLoger, PAP, Logic-Immo) : voir la section suivante. Les annonces reçues par e-mail ne sont pas soumises au filtre de budget.
 - Alertes Jinka : ouvrir l'alerte connecté dans le navigateur, coller `scripts/jinka_export.js` dans la console (F12), déposer le CSV téléchargé dans `data/jinka/` et commiter. Les biens choisis à la main (sources `jinka` et `manuel`) ne sont pas soumis au filtre de budget. Pour analyser un CSV sans toucher au radar : `python scripts/analyser_csv.py data/jinka/mon-export.csv --top 30`.
 - Enchères, ventes interactives, biens de l'État : section `sources_speciales` (activation, coefficient mise à prix vers prix attendu, frais d'enchères 12 %, décote bien occupé, tribunaux supplémentaires à suivre).
 

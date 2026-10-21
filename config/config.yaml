@@ -119,6 +119,14 @@ sources_speciales:
   cessions_etat_pages: 6
   cessions_etat_departements: ["59", "62"]   # vide = toute la France
   decote_etat_sans_prix: 0.15          # prix non communique : valeur DVF x (1 - decote) comme hypothese d'offre
+  alertes_email:                       # alertes des portails (Leboncoin, SeLoger, PAP...) lues en IMAP, voir README
+    actif: true
+    imap_host: imap.gmail.com
+    dossier: INBOX
+    expediteurs: ["leboncoin.fr", "seloger.com", "pap.fr", "logic-immo.com", "jinka.fr", "bienici.com"]
+    marquer_lu: true
+    max_mails_par_run: 200
+    retention_jours: 45                # une annonce lue dans un mail reste analysee pendant 45 jours
 
 financement:
   apport_pct: 0.10                     # x % du cout total du projet (prix + notaire + travaux + meubles)

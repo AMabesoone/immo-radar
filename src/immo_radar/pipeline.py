@@ -13,7 +13,7 @@ from .models import Listing
 from .outputs import html, sheets
 from .outputs.state import Etat
 from .enrich.geocode import resolve_zone
-from .sources import bienici, csv_import, immo_interactif, licitor, notaires
+from .sources import bienici, csv_import, email_alerts, immo_interactif, licitor, notaires
 from .sources import etat as source_etat
 
 log = logging.getLogger(__name__)
@@ -46,7 +46,7 @@ def filtrer(listings: list[Listing], cfg_r: dict[str, Any], cfg_sp: dict[str, An
         prix_ref = lst.mise_a_prix if lst.mode_vente in {"enchere_judiciaire", "vente_interactive"} else lst.prix
         if lst.mode_vente == "cession_etat" and not lst.prix:
             prix_ref = None  # prix inconnu : estime plus tard par DVF
-        if lst.source in {"manuel", "jinka"}:
+        if lst.source in {"manuel", "jinka", "leboncoin", "seloger", "pap", "logic_immo", "bienici_email"}:
             prix_ref = None  # biens choisis a la main : pas de filtre de budget, l'analyse tranche
         if prix_ref is not None and not (float(cfg_r.get("prix_min", 0)) * (0.5 if lst.mode_vente != "classique" else 1.0) <= prix_ref <= float(cfg_r.get("prix_max", 1e9))):
             continue
@@ -92,6 +92,8 @@ def executer(config_path: str | None = None, dry_run: bool = False, limite: int 
         if deps_etat:
             biens_etat = [l for l in biens_etat if str(l.extra.get("departement", "")) in deps_etat]
         bruts += biens_etat
+    if (cfg_sp.get("alertes_email") or {}).get("actif", True):
+        bruts += _collecter("alertes_email", email_alerts.fetch_all(cfg_sp.get("alertes_email") or {}, ROOT / "data" / "cache" / "alertes_email.json"))
     bruts += csv_import.load(ROOT / "data" / "annonces_manuelles.csv")
     bruts += csv_import.load_dir(ROOT / "data" / "jinka")
     listings = filtrer(bruts, cfg_r, cfg_sp)
