@@ -106,8 +106,11 @@ def extraire_annonces(html: str, source_hint: str = "") -> list[dict[str, Any]]:
     for i, (deb, fin, ident, source, url) in enumerate(occurrences):
         prev_end = occurrences[i - 1][1] if i > 0 else 0
         next_start = occurrences[i + 1][0] if i + 1 < len(occurrences) else len(texte)
-        seg_start = max(prev_end, deb - 160)
-        seg = texte[seg_start:next_start]
+        # Les details d'une annonce (titre, prix, ville) suivent ses liens dans la quasi-totalite des gabarits :
+        # le segment va du dernier lien de l'annonce au premier lien de la suivante. Le texte entre le premier
+        # et le dernier lien (texte du lien image, legende) est ajoute en secours.
+        seg = texte[fin:next_start] + "\n" + texte[deb:fin]
+        avant = texte[max(prev_end, deb - 160):deb]  # titre eventuellement place avant l'image
         seg_sans_liens = re.sub(r"\[https?://[^\]]*\]", " ", seg)
         prix_m = RE_PRIX.search(seg_sans_liens)
         surf_m = RE_SURFACE.search(seg_sans_liens)
@@ -127,6 +130,9 @@ def extraire_annonces(html: str, source_hint: str = "") -> list[dict[str, Any]]:
                 and not l.lower().startswith(("classe", "dpe", "se d", "voir", "nouvelles annonces"))
 
         titre = next((l for l in lignes if _est_titre(l)), "")
+        if not titre:
+            lignes_avant = [l.strip() for l in re.sub(r"\[https?://[^\]]*\]", " ", avant).split("\n") if l.strip()]
+            titre = next((l for l in reversed(lignes_avant) if _est_titre(l)), "")
         annonces.append({
             "id": ident,
             "source": source,
