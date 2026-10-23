@@ -55,6 +55,9 @@ def loyer_longue_duree(listing: Listing, market: MarketData, cfg_ld: dict[str, A
     estime = None
     if market.loyer_m2:
         estime = market.loyer_m2 * 0.92 * listing.surface
+    externe = (listing.extra or {}).get("loyer_marche")
+    if externe:
+        return float(externe)  # estimation externe saisie a la main (agence, MeilleursAgents) : prioritaire
     if listing.loue_actuellement and listing.loyer_actuel:
         # garde-fou : un loyer "en place" lu dans l'annonce doit rester plausible (0,4 a 2 fois le marche)
         if estime is None or 0.4 * estime <= float(listing.loyer_actuel) <= 2.0 * estime:

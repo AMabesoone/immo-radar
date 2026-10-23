@@ -70,7 +70,9 @@ def load(path: str | Path) -> list[Listing]:
                 mise_a_prix=_num(row.get("mise_a_prix")),
                 date_vente=row.get("date_vente") or "",
                 occupe=str(row.get("occupe", "")).lower() in {"1", "oui", "true"},
-                extra={"quartier": row.get("quartier") or "", "adresse": row.get("adresse") or ""},
+                extra={"quartier": row.get("quartier") or "", "adresse": row.get("adresse") or "",
+                       "loyer_marche": _num(row.get("loyer_marche")), "valeur_marche": _num(row.get("valeur_marche")),
+                       "source_estimation": row.get("source_estimation") or ""},
             ))
     log.info("Import manuel : %d annonces", len(out))
     return out
