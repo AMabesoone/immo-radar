@@ -198,6 +198,9 @@ class Analyseur:
             # la decote vs DVF, le prix au m2 et les sorties portent sur un prix realiste
             lst.prix = prix_negocie
         travaux = lst.surface * float(acq["travaux_par_m2"].get(niveau, 0))
+        if (lst.extra or {}).get("travaux_estimes") is not None:
+            travaux = float(lst.extra["travaux_estimes"])  # devis ou estimation saisie a la main
+            niveau = "devis"
         ameublement = max(lst.surface * float(acq["ameublement_par_m2"]), float(acq["ameublement_minimum"]))
         plan = construire_plan(prix_negocie, prix_negocie * float(notaire_pct), travaux, ameublement, cfg["financement"])
         scenarios = construire_scenarios(lst, md, plan, cfg)

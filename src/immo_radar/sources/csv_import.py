@@ -72,7 +72,8 @@ def load(path: str | Path) -> list[Listing]:
                 occupe=str(row.get("occupe", "")).lower() in {"1", "oui", "true"},
                 extra={"quartier": row.get("quartier") or "", "adresse": row.get("adresse") or "",
                        "loyer_marche": _num(row.get("loyer_marche")), "valeur_marche": _num(row.get("valeur_marche")),
-                       "source_estimation": row.get("source_estimation") or ""},
+                       "source_estimation": row.get("source_estimation") or "",
+                       "travaux_estimes": _num(row.get("travaux_estimes")), "loyer_colocation": _num(row.get("loyer_colocation"))},
             ))
     log.info("Import manuel : %d annonces", len(out))
     return out

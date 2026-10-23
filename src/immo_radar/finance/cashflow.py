@@ -231,6 +231,8 @@ def construire_scenarios(
             and listing.pieces >= int(cfg_ld.get("colocation_pieces_min", 3))
         ):
             loyer_coloc = loyer_nu * (1 + float(cfg_ld.get("prime_colocation_pct", 0.25)))
+            if (listing.extra or {}).get("loyer_colocation"):
+                loyer_coloc = float(listing.extra["loyer_colocation"])  # loyers des chambres saisis a la main (charges comprises)
             sc = _scenario_ld("colocation", listing, market, loyer_coloc, plan, cfg_ld, cfg_fisc, meuble=True)
             sc.hypotheses["chambres"] = max(listing.pieces - 1, 2)
             scenarios.append(sc)
