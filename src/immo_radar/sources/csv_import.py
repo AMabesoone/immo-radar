@@ -66,7 +66,11 @@ def load(path: str | Path) -> list[Listing]:
                 nb_lots_copro=int(_num(row.get("nb_lots_copro")) or 0) or None,
                 neuf=str(row.get("neuf", "")).lower() in {"1", "oui", "true"},
                 date_publication=row.get("date_publication") or "",
-                extra={"quartier": row.get("quartier") or ""},
+                mode_vente=row.get("mode_vente") or "classique",
+                mise_a_prix=_num(row.get("mise_a_prix")),
+                date_vente=row.get("date_vente") or "",
+                occupe=str(row.get("occupe", "")).lower() in {"1", "oui", "true"},
+                extra={"quartier": row.get("quartier") or "", "adresse": row.get("adresse") or ""},
             ))
     log.info("Import manuel : %d annonces", len(out))
     return out
