@@ -103,6 +103,9 @@ def _scenario_ld(
     if meuble:
         autres["comptable_lmnp"] = float(cfg_fisc.get("comptable_lmnp", 450))
         autres["cfe"] = float(cfg_fisc.get("cfe_defaut", 300))
+    if nom == "colocation":
+        # loyer "charges comprises" par chambre : energie, eau, internet restent a la charge du proprietaire
+        autres["energie_eau_internet"] = float(cfg_ld.get("colocation_charges_incluses_mensuel", 0)) * 12
     autres_total = sum(autres.values())
     charges = vacance + gestion + gli + capex + copro + tf + pno + autres_total
     nets = revenus - charges
