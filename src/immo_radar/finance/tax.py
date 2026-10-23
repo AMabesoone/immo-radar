@@ -87,8 +87,11 @@ def analyser_nue(sc: Scenario, plan: PlanFinancement, cfg_f: dict[str, Any]) -> 
     else:
         res.append(ResultatFiscal("micro_foncier", 0, 0, 0, 0, 0, eligible=False,
                                   commentaire="Loyers > 15 000 EUR : reel obligatoire"))
-    # Reel foncier
-    charges = _charges_deductibles(sc, plan) + plan.travaux  # travaux d'entretien/amelioration deductibles l'annee 1
+    # Reel foncier. Les travaux sont deductibles l'annee ou ils sont payes (deficit foncier), mais pour comparer les
+    # regimes en croisiere on les etale sur la meme duree que l'amortissement LMNP des travaux : l'annee 1 reelle est
+    # plus favorable (jusqu'a 10 700 EUR imputes sur le revenu global, excedent reportable 10 ans).
+    duree_travaux = float(cfg_f.get("amortissement", {}).get("duree_travaux_ans", 12))
+    charges = _charges_deductibles(sc, plan) + (plan.travaux / duree_travaux if plan.travaux else 0.0)
     base = revenus - charges
     if base >= 0:
         ir, pss = base * tmi, base * ps
@@ -101,6 +104,8 @@ def analyser_nue(sc: Scenario, plan: PlanFinancement, cfg_f: dict[str, Any]) -> 
         pss = 0.0
         deficit = -base - deficit_global
         com = f"Deficit foncier : {deficit_global:,.0f} EUR imputes sur le revenu global (economie IR), reste reportable 10 ans"
+    if plan.travaux:
+        com += f" ; travaux {plan.travaux:,.0f} EUR lisses sur {duree_travaux:.0f} ans pour la comparaison (deductibles en totalite l'annee de paiement)"
     res.append(ResultatFiscal("reel_foncier", base, ir, pss, ir + pss, _cf_apres_impot(sc, ir + pss),
                               deficit_reportable=deficit, commentaire=com))
     # Dispositif Jeanbrun (LF 2026) : amortissement en location nue si neuf ou ancien avec travaux >= 30 % du prix
