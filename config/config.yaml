@@ -181,7 +181,7 @@ exploitation:
     colocation_surface_min: 60
     colocation_pieces_min: 3
     colocation_charges_incluses_mensuel: 170   # energie, eau, internet inclus dans les loyers des chambres (3 colocataires)
-    colocation_population_min: 60000   # colocation etudiee seulement si commune >= 60 000 hab. ou zone tendue (demande etudiante / jeunes actifs)
+    colocation_population_min: 40000   # colocation etudiee seulement si commune >= 40 000 hab. ou zone tendue (villes universitaires : Valenciennes, Douai, Arras, Calais...)
   courte_duree:
     # Occupation et prix moyen par nuit par defaut quand aucune donnee Inside Airbnb n'est disponible.
     # Valeurs centrales prudentes (AirDNA / Airbtics / Welkeys 2025-2026) : les fournisseurs divergent fortement.
