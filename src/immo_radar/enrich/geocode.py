@@ -63,6 +63,6 @@ def resolve(code_postal: str, ville: str) -> tuple[str | None, str | None, int |
     return None, ville, None
 
 
-def resolve_zone(zone: str) -> tuple[str | None, str | None, int | None]:
-    """Code INSEE d'une ville cible de la config (sans code postal)."""
-    return resolve("", zone)
+def resolve_zone(zone: str, code_postal: str = "") -> tuple[str | None, str | None, int | None]:
+    """Code INSEE d'une ville cible de la config ; code_postal facultatif pour lever une homonymie."""
+    return resolve(code_postal or "", zone)

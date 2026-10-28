@@ -127,9 +127,11 @@ def normalize(ad: dict[str, Any], zone: str, categorie: str) -> Listing | None:
     )
 
 
-def fetch_city(zone: str, categorie: str, cfg_r: dict[str, Any]) -> list[Listing]:
+def fetch_city(zone: str, categorie: str, cfg_r: dict[str, Any], code_postal: str = "") -> list[Listing]:
     s = session()
-    sugg = resolve_zone(s, zone)
+    sugg = resolve_zone(s, f"{zone} {code_postal}".strip())
+    if code_postal and sugg and code_postal not in (sugg.get("postalCodes") or [code_postal]):
+        log.warning("Zone %s : la suggestion Bien'ici %s ne porte pas le code postal %s", zone, sugg.get("name"), code_postal)
     if not sugg:
         log.warning("Zone introuvable sur Bien'ici : %s", zone)
         return []
@@ -165,7 +167,7 @@ def fetch_city(zone: str, categorie: str, cfg_r: dict[str, Any]) -> list[Listing
 def fetch_all(cfg_r: dict[str, Any]) -> Iterable[Listing]:
     for ville in cfg_r.get("villes", []):
         try:
-            yield from fetch_city(ville["zone"], ville.get("categorie", "ville_moyenne"), cfg_r)
+            yield from fetch_city(ville["zone"], ville.get("categorie", "ville_moyenne"), cfg_r, str(ville.get("cp") or ""))
         except Exception as exc:  # une ville en echec ne doit pas bloquer la semaine
             log.exception("Echec Bien'ici pour %s : %s", ville.get("zone"), exc)
         polite_pause(1.5, 3.0)

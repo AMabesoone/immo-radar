@@ -103,10 +103,10 @@ def fetch_departement(dep: str, communes_insee: dict[str, tuple[str, str]], cfg_
 
 
 def fetch_all(cfg_r: dict[str, Any], resolver) -> Iterable[Listing]:
-    """resolver(zone) -> (code_insee, nom, population) ; regroupe les villes par departement."""
+    """resolver(zone, code_postal) -> (code_insee, nom, population) ; regroupe les villes par departement."""
     par_dep: dict[str, dict[str, tuple[str, str]]] = {}
     for ville in cfg_r.get("villes", []):
-        insee, _, _ = resolver(ville["zone"])
+        insee, _, _ = resolver(ville["zone"], str(ville.get("cp") or ""))
         if not insee:
             continue
         dep = insee[:3] if insee.startswith("97") else insee[:2]

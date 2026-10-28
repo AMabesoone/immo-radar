@@ -160,6 +160,8 @@ def calculer_score(
     if listing.mode_vente == "enchere_judiciaire":
         forts.append(f"Vente aux encheres judiciaires le {listing.date_vente} : mise a prix {listing.mise_a_prix:,.0f} EUR ({listing.prix_estime_note})")
         flags.append("Encheres : pas de condition suspensive de pret, consignation 10 %, frais 10 a 15 %, surenchere possible 10 jours")
+        if (listing.extra or {}).get("surface_estimee"):
+            flags.append(f"Surface non communiquee : {listing.surface:.0f} m2 estimes d'apres le nombre de pieces, loyers et prix/m2 a recalculer avec le PV descriptif")
         if listing.occupe:
             flags.append("Bien occupe : procedure d'expulsion ou bail a reprendre, 12 a 24 mois sans loyer possible")
     elif listing.mode_vente == "vente_interactive":

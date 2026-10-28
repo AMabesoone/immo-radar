@@ -49,8 +49,50 @@ communes:
   Saint-Jean-de-Luz: { changement_usage: true, compensation: true,  quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
   Hellemmes:        { changement_usage: true, compensation: false, quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
   Lomme:            { changement_usage: true, compensation: false, quota: true,  encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  # Ile-de-France. Changement d'usage de plein droit (art. L631-7 CCH) a Paris et dans toutes les communes du 92, 93 et 94.
+  # Encadrement des loyers : Paris, Plaine Commune (93) et Est Ensemble (93). Majoration TH secondaire a verifier commune par commune.
   Saint-Denis:      { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Aubervilliers:    { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Saint-Ouen-sur-Seine: { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Epinay-sur-Seine: { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  La Courneuve:     { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Stains:           { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Pierrefitte-sur-Seine: { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.0, zone_tendue: true }
   Montreuil:        { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Bagnolet:         { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Pantin:           { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Les Lilas:        { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Le Pre-Saint-Gervais: { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Bobigny:          { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Bondy:            { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Noisy-le-Sec:     { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Romainville:      { changement_usage: true, compensation: false, quota: false, encadrement_loyers: true, th_secondaire_majoration: 0.0,  zone_tendue: true }
+  Drancy:           { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Aulnay-sous-Bois: { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Ivry-sur-Seine:   { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Vitry-sur-Seine:  { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Villejuif:        { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Creteil:          { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Champigny-sur-Marne: { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Nanterre:         { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Colombes:         { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Gennevilliers:    { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Asnieres-sur-Seine: { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Clichy:           { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Boulogne-Billancourt: { changement_usage: true, compensation: true, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
+  Argenteuil:       { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Sarcelles:        { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Garges-les-Gonesse: { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Cergy:            { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Evry-Courcouronnes: { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Corbeil-Essonnes: { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Massy:            { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Meaux:            { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Melun:            { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Mantes-la-Jolie:  { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Les Mureaux:      { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Poissy:           { changement_usage: false, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0, zone_tendue: true }
+  Versailles:       { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.60, zone_tendue: true }
   Roubaix:          { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: true }
   Tourcoing:        { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: true }
   Villeneuve-d'Ascq: { changement_usage: true, compensation: false, quota: false, encadrement_loyers: false, th_secondaire_majoration: 0.0,  zone_tendue: true }

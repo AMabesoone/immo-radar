@@ -8,9 +8,11 @@ recherche:
   # Villes ou zones a scanner. "zone" = requete envoyee a la geocodification Bien'ici.
   # categorie : metropole | grande_ville | ville_moyenne | touristique | petite_ville
   # Elle pilote les hypotheses par defaut (occupation courte duree, vacance, tension).
-  # Cible du premier achat : Nord (59) et Pas-de-Calais (62). L'ancienne liste France entiere est
-  # conservee dans villes_desactivees (deplacer des lignes vers villes pour les reactiver).
+  # Cibles du premier achat : Nord (59), Pas-de-Calais (62) et Ile-de-France (75, 77, 78, 91, 92, 93, 94, 95).
+  # L'ancienne liste France entiere est conservee dans villes_desactivees (deplacer des lignes vers villes pour les reactiver).
+  # cp (facultatif) : code postal pour lever une homonymie (Saint-Denis 93 et non La Reunion).
   villes:
+    # Nord et Pas-de-Calais
     - { zone: "Lille", categorie: grande_ville }
     - { zone: "Roubaix", categorie: ville_moyenne }
     - { zone: "Tourcoing", categorie: ville_moyenne }
@@ -35,6 +37,42 @@ recherche:
     - { zone: "Berck", categorie: touristique }
     - { zone: "Le Touquet-Paris-Plage", categorie: touristique }
     - { zone: "Wimereux", categorie: touristique }
+    # Ile-de-France : Paris + communes de petite et grande couronne ou le rendement brut peut depasser 6 %
+    - { zone: "Paris", categorie: paris }
+    - { zone: "Saint-Denis", cp: "93200", categorie: grande_ville }
+    - { zone: "Aubervilliers", categorie: ville_moyenne }
+    - { zone: "Saint-Ouen-sur-Seine", categorie: ville_moyenne }
+    - { zone: "Pantin", categorie: ville_moyenne }
+    - { zone: "Montreuil", cp: "93100", categorie: grande_ville }
+    - { zone: "Bobigny", categorie: ville_moyenne }
+    - { zone: "Bondy", categorie: ville_moyenne }
+    - { zone: "Noisy-le-Sec", categorie: ville_moyenne }
+    - { zone: "Drancy", categorie: ville_moyenne }
+    - { zone: "Aulnay-sous-Bois", categorie: ville_moyenne }
+    - { zone: "Epinay-sur-Seine", categorie: ville_moyenne }
+    - { zone: "Ivry-sur-Seine", categorie: ville_moyenne }
+    - { zone: "Vitry-sur-Seine", categorie: ville_moyenne }
+    - { zone: "Villejuif", categorie: ville_moyenne }
+    - { zone: "Creteil", categorie: ville_moyenne }
+    - { zone: "Champigny-sur-Marne", categorie: ville_moyenne }
+    - { zone: "Nanterre", categorie: ville_moyenne }
+    - { zone: "Colombes", categorie: ville_moyenne }
+    - { zone: "Gennevilliers", categorie: ville_moyenne }
+    - { zone: "Asnieres-sur-Seine", categorie: ville_moyenne }
+    - { zone: "Clichy", cp: "92110", categorie: ville_moyenne }
+    - { zone: "Argenteuil", categorie: grande_ville }
+    - { zone: "Sarcelles", categorie: ville_moyenne }
+    - { zone: "Garges-les-Gonesse", categorie: ville_moyenne }
+    - { zone: "Cergy", categorie: ville_moyenne }
+    - { zone: "Evry-Courcouronnes", categorie: ville_moyenne }
+    - { zone: "Corbeil-Essonnes", categorie: ville_moyenne }
+    - { zone: "Massy", categorie: ville_moyenne }
+    - { zone: "Meaux", categorie: ville_moyenne }
+    - { zone: "Melun", categorie: ville_moyenne }
+    - { zone: "Mantes-la-Jolie", categorie: ville_moyenne }
+    - { zone: "Les Mureaux", categorie: petite_ville }
+    - { zone: "Poissy", categorie: ville_moyenne }
+    - { zone: "Versailles", categorie: grande_ville }
   villes_desactivees:
     - { zone: "Lyon", categorie: metropole }
     - { zone: "Villeurbanne", categorie: grande_ville }
@@ -107,7 +145,7 @@ recherche:
 
 sources_speciales:
   encheres_judiciaires: true           # licitor.com : biens saisis vendus aux encheres des tribunaux des villes cibles
-  tribunaux_supplementaires: ["Avesnes-sur-Helpe", "Boulogne-sur-Mer", "Saint-Omer", "Bethune", "Arras", "Cambrai", "Dunkerque", "Douai", "Valenciennes"]   # tribunaux du 59 et du 62 (Licitor)
+  tribunaux_supplementaires: ["Avesnes-sur-Helpe", "Boulogne-sur-Mer", "Saint-Omer", "Bethune", "Arras", "Cambrai", "Dunkerque", "Douai", "Valenciennes", "Bobigny", "Nanterre", "Creteil", "Evry", "Versailles", "Pontoise", "Meaux", "Melun"]   # tribunaux du 59, du 62 et d'Ile-de-France (Licitor ; Paris est deja une ville cible)
   coef_adjudication_attendue: 1.6      # prix d'adjudication attendu = mise a prix x coef (borne par la valeur DVF)
   decote_encheres_vs_marche: 0.20      # plafond : valeur DVF x (1 - decote)
   frais_encheres_pct: 0.12             # droits de mutation + emoluments d'avocat + frais de poursuite (environ 10 a 15 %)
@@ -117,7 +155,7 @@ sources_speciales:
   decote_vni_vs_marche: 0.05
   cessions_etat: true                  # cessions.immobilier-etat.gouv.fr (biens de l'Etat, toute la France)
   cessions_etat_pages: 6
-  cessions_etat_departements: ["59", "62"]   # vide = toute la France
+  cessions_etat_departements: ["59", "62", "75", "77", "78", "91", "92", "93", "94", "95"]   # vide = toute la France
   decote_etat_sans_prix: 0.15          # prix non communique : valeur DVF x (1 - decote) comme hypothese d'offre
   alertes_email:                       # alertes des portails (Leboncoin, SeLoger, PAP...) lues en IMAP, voir README
     actif: true

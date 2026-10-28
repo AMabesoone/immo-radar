@@ -68,3 +68,22 @@ def test_etat_cache_roundtrip(tmp_path):
     _sauver_cache(tmp_path / "etat.json", [l])
     back = _charger_cache(tmp_path / "etat.json")
     assert len(back) == 1 and back[0].id == "etat:1" and back[0].extra["insee"] == "78322" and back[0].mode_vente == "cession_etat"
+
+
+def test_licitor_surface_formats_et_estimation():
+    base = {"url": "https://www.licitor.com/annonce/1/x/110000.html", "dep": "77", "city": "Melun", "tj": "tj-melun",
+            "date_audience": date(2026, 11, 5), "page": "/x", "mise_a_prix": 98000.0}
+    # "Superficie : 90,70 m2" (format Seine-et-Marne) doit etre lu
+    ads = licitor.parse_audience(PAGE.replace("de 235,64 m²", "Superficie : 90,70 m² DPE : F"), "/x", "tj-melun", date(2026, 11, 5))
+    assert ads[0]["surface"] == 90.7
+    # "Un logement ... de deux pieces principales" sans surface : estime 2 x 20 m2, signale
+    lot = licitor.to_listing({**base, "name": "Un logement", "surface": None, "text": "au rez-de-chaussee, de deux pièces principales, en travaux"}, "Melun", "ville_moyenne")
+    assert lot and lot.type_bien == "flat" and lot.surface == 40 and lot.pieces == 2 and lot.extra["surface_estimee"]
+    assert "Surface non communiquee" in lot.description
+    # maison "trois chambres" sans surface : 4 pieces x 25 m2
+    maison = licitor.to_listing({**base, "name": "Une maison à usage d'habitation", "surface": None, "text": "entree, cuisine, sejour, trois chambres"}, "Melun", "ville_moyenne")
+    assert maison and maison.type_bien == "house" and maison.pieces == 4 and maison.surface == 100
+    # ni surface ni pieces : non analysable
+    assert licitor.to_listing({**base, "name": "Une maison", "surface": None, "text": ""}, "Melun", "ville_moyenne") is None
+    # bureau / parking : toujours exclus
+    assert licitor.to_listing({**base, "name": "Un bureau", "surface": 63.2, "text": "de 63,2 m²"}, "Melun", "ville_moyenne") is None

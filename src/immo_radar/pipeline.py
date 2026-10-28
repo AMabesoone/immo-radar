@@ -82,7 +82,7 @@ def executer(config_path: str | None = None, dry_run: bool = False, limite: int 
     if cfg_sp.get("ventes_interactives", True):
         deps: dict[str, tuple[str, str]] = {}
         for ville in cfg_r.get("villes", []):
-            insee, _, _ = resolve_zone(ville["zone"])
+            insee, _, _ = resolve_zone(ville["zone"], str(ville.get("cp") or ""))
             if insee:
                 deps[insee[:3] if insee.startswith("97") else insee[:2]] = (ville["zone"], ville.get("categorie", "ville_moyenne"))
         bruts += _collecter("immo_interactif", immo_interactif.fetch_all(cfg_r, deps))

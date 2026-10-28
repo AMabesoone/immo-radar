@@ -44,6 +44,7 @@ a{color:var(--accent)}
 <div class="kpis" id="kpis"></div>
 <div class="filters">
   <input id="q" placeholder="Rechercher (ville, titre, CP)">
+  <select id="region"><option value="">Toutes les regions</option><option value="nord">Nord et Pas-de-Calais</option><option value="idf">Ile-de-France</option><option value="autre">Autres</option></select>
   <select id="ville"><option value="">Toutes les villes</option></select>
   <select id="cf"><option value="">Tous cash-flows</option><option value="pos">Autofinance (LD)</option><option value="cd">Autofinance (courte duree)</option></select>
   <select id="dpe"><option value="">Tous DPE</option><option value="ABCD">A a D</option><option value="E">E</option><option value="FG">F ou G</option></select>
@@ -71,7 +72,7 @@ const num=v=>v==null?'':Math.round(v).toLocaleString('fr-FR');
 const cls=s=>s>=75?'s-hi':s>=55?'s-mid':'s-lo';
 const sgn=v=>v==null?'':`<span class="${v>=0?'pos':'neg'}">${v>=0?'+':''}${num(v)}</span>`;
 const rows=D.opportunites.map((o,i)=>{const l=o.listing,m=o.market,r=o.resume;const pm2=l.surface?l.prix/l.surface:null;
- return {i,o,score:o.score.total,ville:l.ville,prix:l.prix,pm2,dvf:m.prix_m2_dvf_median,rb:r.rendement_brut,cfld:r.cashflow_ld_apres_impot,cfcd:r.cd_faisable?r.cashflow_cd_apres_impot:null,dpe:(l.dpe||'').toUpperCase(),nouvelle:!!(o.etat&&o.etat.nouvelle)}});
+ const cp=String(l.code_postal||'');const region=/^(59|62)/.test(cp)?'nord':/^(75|77|78|91|92|93|94|95)/.test(cp)?'idf':'autre';return {i,o,region,score:o.score.total,ville:l.ville,prix:l.prix,pm2,dvf:m.prix_m2_dvf_median,rb:r.rendement_brut,cfld:r.cashflow_ld_apres_impot,cfcd:r.cd_faisable?r.cashflow_cd_apres_impot:null,dpe:(l.dpe||'').toUpperCase(),nouvelle:!!(o.etat&&o.etat.nouvelle)}});
 let sortK='score',sortDir=-1;
 const kp=document.getElementById('kpis');const S=D.stats;
 kp.innerHTML=[[S.annonces_analysees,'annonces analysees'],[S.publiees,'opportunites retenues'],[S.autofinancees_ld,'autofinancees en longue duree'],[S.autofinancees_cd,'autofinancees en courte duree'],[S.villes,'villes scannees']].map(([v,t])=>`<div class="kpi"><b>${v??0}</b><span>${t}</span></div>`).join('');
@@ -93,13 +94,13 @@ function detail(o){const l=o.listing,m=o.market,p=o.plan,r=o.resume;
  <div class="box"><h4>Checklist avant offre</h4><ul>${o.checklist.map(x=>`<li>${x}</li>`).join('')}</ul></div>
  </div>`}
 const MODE={enchere_judiciaire:'encheres',vente_interactive:'vente interactive',cession_etat:'bien de l\'Etat'};
-function render(){const q=document.getElementById('q').value.toLowerCase(),v=vs.value,cf=document.getElementById('cf').value,dp=document.getElementById('dpe').value,nw=document.getElementById('new').checked,md=document.getElementById('mode').value;
- let rs=rows.filter(r=>(!q||(r.ville+' '+r.o.listing.titre+' '+r.o.listing.code_postal).toLowerCase().includes(q))&&(!v||r.ville===v)&&(!md||(r.o.listing.mode_vente||'classique')===md)&&(cf!=='pos'||r.cfld>=0)&&(cf!=='cd'||r.cfcd>=0)&&(!dp||(dp==='ABCD'?'ABCD'.includes(r.dpe)&&r.dpe:dp==='E'?r.dpe==='E':'FG'.includes(r.dpe)&&r.dpe))&&(!nw||r.nouvelle));
+function render(){const q=document.getElementById('q').value.toLowerCase(),v=vs.value,rg=document.getElementById('region').value,cf=document.getElementById('cf').value,dp=document.getElementById('dpe').value,nw=document.getElementById('new').checked,md=document.getElementById('mode').value;
+ let rs=rows.filter(r=>(!q||(r.ville+' '+r.o.listing.titre+' '+r.o.listing.code_postal).toLowerCase().includes(q))&&(!rg||r.region===rg)&&(!v||r.ville===v)&&(!md||(r.o.listing.mode_vente||'classique')===md)&&(cf!=='pos'||r.cfld>=0)&&(cf!=='cd'||r.cfcd>=0)&&(!dp||(dp==='ABCD'?'ABCD'.includes(r.dpe)&&r.dpe:dp==='E'?r.dpe==='E':'FG'.includes(r.dpe)&&r.dpe))&&(!nw||r.nouvelle));
  rs.sort((a,b)=>{const x=a[sortK]??-1e18,y=b[sortK]??-1e18;return typeof x==='string'?sortDir*x.localeCompare(y):sortDir*(x-y)});
  document.getElementById('tb').innerHTML=rs.map(r=>{const l=r.o.listing,m=r.o.market,e=r.o.etat||{};const dec=r.dvf?1-r.pm2/r.dvf:null;
  return `<tr class="row" data-i="${r.i}"><td><span class="score ${cls(r.score)}">${r.score}</span></td><td>${l.ville}<br><small>${l.code_postal}</small></td><td><a href="${l.url}" target="_blank" rel="noopener">${(l.titre||'Annonce').slice(0,70)}</a><br><small>${l.surface} m2 · ${l.pieces} p. · DPE ${l.dpe||'?'} · ${r.o.niveau_travaux}</small></td><td>${eur(l.prix)}${l.mode_vente&&l.mode_vente!=='classique'?`<br><small>${MODE[l.mode_vente]||l.mode_vente}${l.mise_a_prix?' : mise a prix '+eur(l.mise_a_prix):''}${l.date_vente?' · '+l.date_vente:''}</small>`:''}${e.baisse_prix_pct>0?`<br><small class="pos">-${pct(e.baisse_prix_pct)} depuis la 1re vue</small>`:''}</td><td class="hide-m">${num(r.pm2)}${dec!=null?`<br><small class="${dec>=0?'pos':'neg'}">${dec>=0?'-':'+'}${pct(Math.abs(dec))} vs DVF</small>`:''}</td><td class="hide-m">${pct(r.rb)}</td><td>${sgn(r.cfld)}<br><small>${r.o.resume.meilleur_scenario||''} · ${r.o.resume.meilleur_regime||''}</small></td><td class="hide-m">${r.cfcd!=null?sgn(r.cfcd):'<small>contrainte</small>'}</td><td class="hide-m">${r.nouvelle?'<span class="tag">nouveau</span>':''}${l.loue_actuellement?'<span class="tag">loue</span>':''}${l.prix_a_baisse?'<span class="tag">prix baisse</span>':''}${r.o.score.red_flags.length?`<span class="tag flag">${r.o.score.red_flags.length} alerte(s)</span>`:''}</td></tr><tr class="detail" id="d${r.i}"><td colspan="9">${detail(r.o)}</td></tr>`}).join('');}
 document.querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{const k=th.dataset.k;if(sortK===k)sortDir*=-1;else{sortK=k;sortDir=k==='ville'?1:-1}render()});
-['q','ville','cf','dpe','new','mode'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+['q','region','ville','cf','dpe','new','mode'].forEach(id=>document.getElementById(id).addEventListener('input',render));
 document.getElementById('tb').addEventListener('click',e=>{const tr=e.target.closest('tr.row');if(!tr||e.target.closest('a'))return;const d=document.getElementById('d'+tr.dataset.i);d.style.display=d.style.display==='table-row'?'none':'table-row'});
 render();
 </script>

@@ -41,7 +41,7 @@ L'onglet `Parametres` permet de surcharger n'importe quelle valeur de `config/co
 Les portails envoient eux-mêmes les nouvelles annonces par e-mail pour une recherche sauvegardée. Le pipeline lit ces e-mails en IMAP et analyse les annonces comme les autres. Aucune visite automatisée des portails.
 
 1. Créer une boîte Gmail dédiée (recommandé, pour ne pas donner au robot l'accès à une boîte personnelle), activer la validation en deux étapes puis créer un mot de passe d'application (Compte Google > Sécurité > Mots de passe des applications).
-2. Sur Leboncoin (et SeLoger, PAP...), créer les recherches sauvegardées avec alerte e-mail vers cette boîte : départements 59 et 62, maisons et appartements, budget, « alerte quotidienne » ou « instantanée ».
+2. Sur Leboncoin (et SeLoger, PAP...), créer les recherches sauvegardées avec alerte e-mail vers cette boîte : départements 59 et 62 puis Paris et Île-de-France (75, 77, 78, 91, 92, 93, 94, 95), maisons et appartements, budget, « alerte quotidienne » ou « instantanée ».
 3. Dans le dépôt, Settings > Secrets and variables > Actions : `IMAP_USER` (l'adresse), `IMAP_PASSWORD` (le mot de passe d'application), `IMAP_HOST` facultatif (`imap.gmail.com` par défaut).
 4. Lancer le workflow à la main une fois qu'un premier e-mail d'alerte est arrivé et vérifier dans le log la ligne « Alertes e-mail : N annonces nouvelles ».
 

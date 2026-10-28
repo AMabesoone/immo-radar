@@ -34,8 +34,14 @@ RE_FIELD = {
     "text": re.compile(r'<span class="Text">(.*?)</span>', re.S),
     "price": re.compile(r'<span class="PriceNumber">([^<]*)</span>'),
 }
-RE_SURFACE = re.compile(r"de\s+([0-9]{1,4}(?:[,.][0-9]{1,2})?)\s*m[²2]", re.I)
-RE_PIECES = re.compile(r"\b(\d{1,2})\s*(?:pieces?|pièces?|chambres?)\b", re.I)
+RE_SURFACE = re.compile(
+    r"(?:\bde|d'une\s+surface\s+(?:habitable\s+)?de|superficie(?:\s+habitable)?\s*:?|surface(?:\s+(?:habitable|carrez|loi\s+carrez|totale|utile))?\s*(?:de|:)?|d'environ|environ)"
+    r"\s*([0-9]{1,4}(?:[,.][0-9]{1,2})?)\s*m[²2]", re.I)
+RE_PIECES = re.compile(r"\b(\d{1,2}|une?|deux|trois|quatre|cinq|six|sept|huit)\s*(?:pieces?|pièces?|chambres?)\b", re.I)
+RE_PAGE_TOTAL = re.compile(r'PageTotal.*?/</span>\s*(\d+)', re.S)
+NOMBRES = {"un": 1, "une": 1, "deux": 2, "trois": 3, "quatre": 4, "cinq": 5, "six": 6, "sept": 7, "huit": 8}
+# surface par piece principale retenue quand l'annonce ne donne pas la surface (a verifier dans le PV descriptif)
+SURFACE_PAR_PIECE = {"flat": 20.0, "house": 25.0, "building": 30.0}
 
 
 def slug(text: str) -> str:
@@ -45,7 +51,7 @@ def slug(text: str) -> str:
 
 def _type_bien(name: str) -> str | None:
     n = slug(name)
-    if "appartement" in n or "studio" in n or "duplex" in n:
+    if "appartement" in n or "studio" in n or "duplex" in n or "logement" in n or "usage-d-habitation" in n and "local" in n:
         return "flat"
     if "maison" in n or "villa" in n or "pavillon" in n:
         return "house"
@@ -101,23 +107,50 @@ def parse_audience(html: str, url_page: str, tj: str, date_audience: date) -> li
     return ads
 
 
+def _pieces(text: str) -> int | None:
+    """Nombre de pieces principales : 'deux pieces principales' -> 2 ; 'trois chambres' -> 4 (chambres + sejour)."""
+    m = RE_PIECES.search(text)
+    if not m:
+        return None
+    raw = m.group(1).lower()
+    n = int(raw) if raw.isdigit() else NOMBRES.get(raw, 1)
+    if "chambre" in m.group(0).lower():
+        n += 1
+    return max(n, 1)
+
+
 def to_listing(ad: dict[str, Any], zone: str, categorie: str) -> Listing | None:
     tb = _type_bien(ad["name"])
-    if not tb or not ad.get("mise_a_prix") or not ad.get("surface") or ad["surface"] < 9:
+    if not tb or not ad.get("mise_a_prix"):
+        return None
+    surface = ad.get("surface")
+    pieces = _pieces(ad["text"])
+    surface_estimee = False
+    if not surface:
+        # Licitor ne publie la surface que dans le PV descriptif : on l'estime par le nombre de pieces pour ne pas
+        # perdre le lot, et on le signale (red flag + checklist). Sans pieces ni surface, le lot n'est pas analysable.
+        if not pieces:
+            return None
+        surface = pieces * SURFACE_PAR_PIECE[tb]
+        surface_estimee = True
+    if surface < 9:
         return None
     low = ad["text"].lower()
     occupe = bool(re.search(r"occup|loué|loue|bail", low)) and not re.search(r"\blibre\b", low)
-    pieces_m = RE_PIECES.search(ad["text"])
-    pieces = int(pieces_m.group(1)) if pieces_m else max(1, round(ad["surface"] / 25))
+    if pieces is None:
+        pieces = max(1, round(surface / 25))
     ref = ad["url"].rstrip(".html").split("/")[-1]
+    description = ad["text"]
+    if surface_estimee:
+        description = f"Surface non communiquee dans l'annonce : estimee a {surface:.0f} m2 ({pieces} pieces), a verifier dans le PV descriptif. " + description
     return Listing(
         id=f"licitor:{ref}",
         source="licitor",
         url=ad["url"],
         titre=f"{ad['name']} aux encheres, {ad['city']} (TJ {ad['tj'][3:].replace('-', ' ').title()}, {ad['date_audience']:%d/%m/%Y})",
-        description=ad["text"],
+        description=description,
         prix=ad["mise_a_prix"],          # remplace par le prix d'adjudication attendu dans l'analyse
-        surface=ad["surface"],
+        surface=surface,
         pieces=pieces,
         type_bien=tb,
         ville=ad["city"],
@@ -130,8 +163,31 @@ def to_listing(ad: dict[str, Any], zone: str, categorie: str) -> Listing | None:
         mise_a_prix=ad["mise_a_prix"],
         date_vente=ad["date_audience"].isoformat(),
         occupe=occupe,
-        extra={"tribunal": ad["tj"], "departement": ad["dep"], "page_audience": ad["page"]},
+        extra={"tribunal": ad["tj"], "departement": ad["dep"], "page_audience": ad["page"], "surface_estimee": surface_estimee},
     )
+
+
+def fetch_audience(s, url: str, tj: str, d: date, max_pages: int = 10) -> list[dict[str, Any]]:
+    """Lit toutes les pages d'une audience (?p=2, ?p=3... : les gros tribunaux comme Paris en ont plusieurs)."""
+    ads: list[dict[str, Any]] = []
+    page = s.get("https://www.licitor.com" + url, timeout=30)
+    page.raise_for_status()
+    ads += parse_audience(page.text, url, tj, d)
+    m = RE_PAGE_TOTAL.search(page.text)
+    total = min(int(m.group(1)), max_pages) if m else 1
+    for p in range(2, total + 1):
+        polite_pause(0.8, 1.6)
+        suite = s.get(f"https://www.licitor.com{url}?p={p}", timeout=30)
+        suite.raise_for_status()
+        ads += parse_audience(suite.text, url, tj, d)
+    vus: set[str] = set()
+    uniques = []
+    for ad in ads:  # un meme lot peut apparaitre sur deux pages consecutives
+        cle = ad["url"] + "|" + ad["text"][:60]
+        if cle not in vus:
+            vus.add(cle)
+            uniques.append(ad)
+    return uniques
 
 
 def fetch_all(cfg_r: dict[str, Any], cfg_sp: dict[str, Any]) -> Iterable[Listing]:
@@ -157,13 +213,11 @@ def fetch_all(cfg_r: dict[str, Any], cfg_sp: dict[str, Any]) -> Iterable[Listing
         zone = cible["zone"] if cible else ville.replace("-", " ").title()
         categorie = cible.get("categorie", "ville_moyenne") if cible else "ville_moyenne"
         try:
-            page = s.get("https://www.licitor.com" + url, timeout=30)
-            page.raise_for_status()
+            ads = fetch_audience(s, url, tj, d)
         except Exception as exc:
             log.warning("Licitor %s : %s", url, exc)
             continue
         n_pages += 1
-        ads = parse_audience(page.text, url, tj, d)
         n = 0
         for ad in ads:
             # on garde la ville cible elle-meme et son agglomeration (meme departement) ; la categorie

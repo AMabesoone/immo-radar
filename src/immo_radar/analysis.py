@@ -245,6 +245,8 @@ class Analyseur:
             ]
             if lst.occupe:
                 items.append("Bien occupe : identifier le titre d'occupation (bail, debiteur saisi) et budgeter 12 a 24 mois de procedure d'expulsion")
+            if (lst.extra or {}).get("surface_estimee"):
+                items.append("Lire la surface reelle dans le PV descriptif de l'huissier et relancer la simulation")
         if lst.mode_vente == "vente_interactive":
             items += [
                 "S'inscrire sur immo-interactif et obtenir l'agrement du notaire avant l'ouverture des offres",

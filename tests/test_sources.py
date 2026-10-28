@@ -91,3 +91,20 @@ def test_arrondissement_depuis_nom():
     assert arrondissement_depuis_nom("Paris 15e") == "75115"
     assert arrondissement_depuis_nom("Marseille 11") == "13211"
     assert arrondissement_depuis_nom("Lyon") is None
+
+
+def test_homonymie_code_postal_dans_la_config():
+    """Saint-Denis sans code postal renvoie La Reunion : la config porte un cp pour lever l'ambiguite."""
+    import yaml
+    from immo_radar.sources import notaires
+    cfg_r = yaml.safe_load(open("config/config.yaml", encoding="utf-8"))["recherche"]
+    sd = [v for v in cfg_r["villes"] if v["zone"] == "Saint-Denis"]
+    assert sd and sd[0]["cp"] == "93200"
+    paris = [v for v in cfg_r["villes"] if v["zone"] == "Paris"]
+    assert paris and paris[0]["categorie"] == "paris"
+    appels = []
+    def resolver(zone, cp=""):
+        appels.append((zone, cp))
+        return {"Saint-Denis": "93066", "Paris": "75056"}.get(zone), zone, None
+    list(notaires.fetch_all({"villes": sd + paris, "types_bien": []}, resolver))
+    assert ("Saint-Denis", "93200") in appels and ("Paris", "") in appels
