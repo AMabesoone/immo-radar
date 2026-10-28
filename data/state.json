@@ -15930,6 +15930,21 @@
    "derniere_vue": "2026-10-28",
    "nouvelle": true,
    "baisse_prix_pct": 0.0
+  },
+  "notaires:2089750": {
+   "premiere_vue": "2026-10-28",
+   "prix": [
+    {
+     "date": "2026-10-28",
+     "prix": 107000.0
+    }
+   ],
+   "meilleur_score": 30.4,
+   "url": "https://www.immobilier.notaires.fr/fr/annonce-immo/vente/maison/cambrai-59/2089750",
+   "titre": "Maison 5 pieces a Cambrai (notaire)",
+   "derniere_vue": "2026-10-28",
+   "nouvelle": true,
+   "baisse_prix_pct": 0.0
   }
  }
 }
