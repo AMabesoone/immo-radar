@@ -87,3 +87,13 @@ def test_licitor_surface_formats_et_estimation():
     assert licitor.to_listing({**base, "name": "Une maison", "surface": None, "text": ""}, "Melun", "ville_moyenne") is None
     # bureau / parking : toujours exclus
     assert licitor.to_listing({**base, "name": "Un bureau", "surface": 63.2, "text": "de 63,2 m²"}, "Melun", "ville_moyenne") is None
+
+
+def test_filtre_ventes_a_terme():
+    import yaml
+    cfg_r = yaml.safe_load(open("config/config.yaml", encoding="utf-8"))["recherche"]
+    vat = Listing(id="v", source="bienici", url="", titre="Vente à terme occupée sur 144 mois", description="Bouquet : 97385 EUR Rente : 548 EUR/mois",
+                  prix=97385, surface=46, pieces=2, type_bien="flat", ville="Villejuif", code_postal="94800", categorie_ville="ville_moyenne", zone_recherche="Villejuif")
+    ok = Listing(id="o", source="bienici", url="", titre="Appartement 2 pièces", description="Proche gare, lumineux",
+                 prix=97385, surface=46, pieces=2, type_bien="flat", ville="Villejuif", code_postal="94800", categorie_ville="ville_moyenne", zone_recherche="Villejuif")
+    assert [l.id for l in filtrer([vat, ok], cfg_r)] == ["o"]

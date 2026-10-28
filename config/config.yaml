@@ -100,6 +100,7 @@ recherche:
   pieces_min: 1
   max_annonces_par_ville: 120          # pagination Bien'ici (page de 60)
   jours_max_publication: 45            # ignorer les annonces plus anciennes
+  prix_m2_min_vs_dvf: 0.20             # annonce classique sous 20 % de la mediane DVF au m2 : surface ou prix incoherent, ecartee
   mots_cles_bonus:                     # signaux "vendeur presse" ou "potentiel"
     - "succession"
     - "urgent"
@@ -124,6 +125,12 @@ recherche:
     - "box"
   mots_cles_exclusion:                 # dans le titre ou la description
     - "viager"
+    - "vente a terme"                  # bouquet + rente : le prix affiche n'est que le bouquet
+    - "vente à terme"
+    - "bouquet"
+    - "rente"
+    - "credit-vendeur"
+    - "crédit-vendeur"
     - "nue-propriete"
     - "nue-propriété"
     - "résidence senior"
@@ -148,6 +155,8 @@ sources_speciales:
   tribunaux_supplementaires: ["Avesnes-sur-Helpe", "Boulogne-sur-Mer", "Saint-Omer", "Bethune", "Arras", "Cambrai", "Dunkerque", "Douai", "Valenciennes", "Bobigny", "Nanterre", "Creteil", "Evry", "Versailles", "Pontoise", "Meaux", "Melun"]   # tribunaux du 59, du 62 et d'Ile-de-France (Licitor ; Paris est deja une ville cible)
   coef_adjudication_attendue: 1.6      # prix d'adjudication attendu = mise a prix x coef (borne par la valeur DVF)
   decote_encheres_vs_marche: 0.20      # plafond : valeur DVF x (1 - decote)
+  decote_encheres_marche_tendu: 0.15   # Paris, metropoles, grandes villes : l'adjudication rejoint le marche, prix attendu = max(mise x coef, DVF x (1 - decote))
+  categories_marche_tendu: ["paris", "metropole", "grande_ville"]
   frais_encheres_pct: 0.12             # droits de mutation + emoluments d'avocat + frais de poursuite (environ 10 a 15 %)
   decote_bien_occupe: 0.15             # bien occupe : decote de valeur + duree avant mise en location
   ventes_interactives: true            # immo-interactif.fr (encheres en ligne des notaires)

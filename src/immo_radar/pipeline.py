@@ -114,6 +114,11 @@ def executer(config_path: str | None = None, dry_run: bool = False, limite: int 
             continue
         if not opp:
             continue
+        ratio_min = float(cfg_r.get("prix_m2_min_vs_dvf", 0.0))
+        if (lst.mode_vente == "classique" and ratio_min and opp.market.prix_m2_dvf_median
+                and lst.prix / lst.surface < ratio_min * opp.market.prix_m2_dvf_median):
+            log.info("Annonce ecartee (prix/m2 incoherent avec le DVF) : %s %s", lst.id, lst.url)
+            continue
         best = opp.meilleur_scenario_ld
         if best and best.rendement_brut < rb_min and opp.score.total < 70:
             continue

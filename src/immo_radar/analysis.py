@@ -153,7 +153,12 @@ class Analyseur:
         if lst.mode_vente == "enchere_judiciaire":
             prix = (lst.mise_a_prix or lst.prix) * float(sp.get("coef_adjudication_attendue", 1.6))
             note = f"Adjudication attendue = mise a prix {lst.mise_a_prix:,.0f} EUR x {float(sp.get('coef_adjudication_attendue', 1.6)):.2f}"
-            if valeur_dvf:
+            if valeur_dvf and lst.categorie_ville in set(sp.get("categories_marche_tendu", ["paris", "metropole", "grande_ville"])):
+                # marche tendu : la concurrence pousse l'adjudication pres du marche, la mise a prix n'est pas informative
+                decote = float(sp.get("decote_encheres_marche_tendu", 0.15))
+                if valeur_dvf * (1 - decote) > prix:
+                    prix, note = valeur_dvf * (1 - decote), f"Marche tendu : adjudication attendue = valeur DVF ({valeur_dvf:,.0f} EUR) moins {decote:.0%}"
+            elif valeur_dvf:
                 plafond = valeur_dvf * (1 - float(sp.get("decote_encheres_vs_marche", 0.20)))
                 if prix > plafond:
                     prix, note = plafond, f"Adjudication attendue plafonnee a la valeur DVF ({valeur_dvf:,.0f} EUR) moins {float(sp.get('decote_encheres_vs_marche', 0.20)):.0%}"
