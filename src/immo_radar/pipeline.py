@@ -56,6 +56,25 @@ def filtrer(listings: list[Listing], cfg_r: dict[str, Any], cfg_sp: dict[str, An
     return out
 
 
+def _zone_publication(lst: Listing) -> str:
+    """Cle de la zone pour les seuils par zone : 'Paris' pour tout Paris intra-muros (75), sinon la zone de recherche."""
+    if lst.code_postal.startswith("75") or _norm(lst.ville).startswith("paris") or lst.zone_recherche == "Paris":
+        return "Paris"
+    return lst.zone_recherche
+
+
+def selectionner_publiees(opportunites: list[Opportunite], cfg_s: dict[str, Any]) -> list[Opportunite]:
+    """Top N au-dessus du seuil, avec un seuil propre a certaines zones (Paris : pepites seulement) et les pepites toujours gardees."""
+    seuil = float(cfg_s.get("score_minimum_publication", 55))
+    par_zone = {str(k): float(v) for k, v in (cfg_s.get("score_minimum_par_zone") or {}).items()}
+    pepite = float(cfg_s.get("score_pepite", 101))
+    top_n = int(cfg_s.get("top_n", 40))
+    eligibles = [o for o in opportunites if o.score.total >= par_zone.get(_zone_publication(o.listing), seuil)]
+    publiees = eligibles[:top_n]
+    publiees += [o for o in eligibles[top_n:] if o.score.total >= pepite]
+    return publiees
+
+
 def executer(config_path: str | None = None, dry_run: bool = False, limite: int | None = None, rafraichir_str: bool = False) -> dict[str, Any]:
     cfg = load_config(config_path)
     out_cfg = cfg["sorties"]
@@ -125,8 +144,7 @@ def executer(config_path: str | None = None, dry_run: bool = False, limite: int 
         opportunites.append(opp)
 
     opportunites.sort(key=lambda o: o.score.total, reverse=True)
-    seuil = float(cfg["scoring"].get("score_minimum_publication", 55))
-    publiees = [o for o in opportunites if o.score.total >= seuil][: int(cfg["scoring"].get("top_n", 40))]
+    publiees = selectionner_publiees(opportunites, cfg["scoring"])
     if not publiees and opportunites:
         publiees = opportunites[:10]
 

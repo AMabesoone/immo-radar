@@ -97,3 +97,16 @@ def test_filtre_ventes_a_terme():
     ok = Listing(id="o", source="bienici", url="", titre="Appartement 2 pièces", description="Proche gare, lumineux",
                  prix=97385, surface=46, pieces=2, type_bien="flat", ville="Villejuif", code_postal="94800", categorie_ville="ville_moyenne", zone_recherche="Villejuif")
     assert [l.id for l in filtrer([vat, ok], cfg_r)] == ["o"]
+
+
+def test_selection_publiees_seuil_paris():
+    from types import SimpleNamespace as NS
+    from immo_radar.pipeline import selectionner_publiees
+    def opp(score, ville, cp, zone):
+        return NS(score=NS(total=score), listing=Listing(id=f"{ville}{score}", source="bienici", url="", titre="", description="", prix=1, surface=1, pieces=1,
+                                                         type_bien="flat", ville=ville, code_postal=cp, categorie_ville="paris", zone_recherche=zone))
+    cfg_s = {"score_minimum_publication": 55, "score_minimum_par_zone": {"Paris": 80}, "score_pepite": 85, "top_n": 2}
+    opps = [opp(90, "Roubaix", "59100", "Roubaix"), opp(88, "Lens", "62300", "Lens"), opp(86, "Paris 18ème", "75018", "Paris"),
+            opp(70, "Paris 11ème", "75011", "Paris"), opp(60, "Douai", "59500", "Douai")]
+    pub = [o.listing.id for o in selectionner_publiees(opps, cfg_s)]
+    assert pub == ["Roubaix90", "Lens88", "Paris 18ème86"]  # Paris 70 sous le seuil parisien ; Paris 86 pepite gardee hors top 2

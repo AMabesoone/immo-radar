@@ -294,6 +294,9 @@ scoring:
     option_courte_duree: 10  # courte duree legalement possible ET rentable
   rendement_brut_minimum: 0.055       # en dessous, l'annonce n'est pas analysee en detail
   score_minimum_publication: 55
+  score_minimum_par_zone:              # seuil plus exigeant pour certaines zones : Paris intra-muros ne remonte que les pepites
+    Paris: 80
+  score_pepite: 85                     # une annonce a ce score est toujours publiee, meme au-dela du top_n
   top_n: 40
 
 sorties:
